@@ -21,6 +21,14 @@ app.config(['$locationProvider', '$routeProvider', function($locationProvider, $
             templateUrl: 'components/Services/service.html',
             controller : 'serviceController as srvCtrl'
         })
+        .when('/favorites', {
+            templateUrl: 'components/favorites/favorites.template.html',
+            controller : 'serviceController as srvCtrl'
+        })
+        .when('/login', {
+            templateUrl: 'components/login/login.html',
+            controller : 'serviceController as srvCtrl'
+        })
         .otherwise({ redirectTo: '/' });
 
         

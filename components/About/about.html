@@ -1,15 +1,167 @@
-<html>
+<style>
+    #content {
+        position: absolute;
+        top: 7%;
+        width: 100%;
+        height: 93%;
+        background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c6/Be%27er_Sheva_at_night.jpg');
+        background-repeat: no-repeat;
+    }
 
-<head>
-    <link rel="stylesheet" href="/components/About/about.css"> 
-</head>
+    p {
+        position: absolute;
+        top: 5%;
+        padding: 2%;
+    }
 
-<h1 id="headd">Hello {{guest}} </h1>
+    img {
+        height: 400px;
+        width: 400px;
+    }
 
-<div>
+    * {
+        box-sizing: border-box
+    }
+
+    body {
+        font-family: Verdana, sans-serif;
+        margin: 0
+    }
+
+    .mySlides {
+        display: none
+    }
+
+    img {
+        vertical-align: middle;
+    }
+
+    /* Slideshow container */
+
+    .slideshow-container {
+        top: 35%;
+        width: 99%;
+        position: relative;
+        margin: auto;
+        border-width: thick;
+        border: 3px solid black;
+    }
+
+    /* Next & previous buttons */
+
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+    }
+
+    /* Position the "next button" to the right */
+
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+    .active,
+    .dot:hover {
+        background-color: #717171;
+    }
+
+    /* Fading animation */
+
+    @-webkit-keyframes fade {
+        from {
+            opacity: .4
+        }
+        to {
+            opacity: 1
+        }
+    }
+
+    @keyframes fade {
+        from {
+            opacity: .4
+        }
+        to {
+            opacity: 1
+        }
+    }
+
+    /* On smaller screens, decrease text size */
+
+    @media only screen and (max-width: 300px) {
+        .prev,
+        .next,
+        .text {
+            font-size: 11px
+        }
+    }
+</style>
 
 
+
+
+<div ng-controller="aboutController" id="content">
+
+    <p>Beer-Sheva is the largest city in the Negev desert of southern Israel. Often referred to as the "Capital of the Negev",
+        it is the center of the fourth most populous metropolitan area in Israel, the eighth most populous Israeli city with
+        a population of 205, 810,[1] and the second largest city with a total area of 117,500 dunams (after Jerusalem).</p>
+
+    <div class="slideshow-container" style=" border-width: thick">
+        <div class="mySlides">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/%D7%91%D7%99%D7%AA_%D7%94%D7%9E%D7%95%D7%A9%D7%9C_%D7%91%D7%90%D7%A8_%D7%A9%D7%91%D7%A2.jpg"
+                style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Kikar_Hamitnadvim%2C_Beersheba.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Tel_Be%27er_Sheva_Overview_2007041.JPG" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Beer_Sheva_Aerial_View.jpg" style="width:100%">
+        </div>
+
+        <a class="prev" onclick="self.plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="self.plusSlides(1)">&#10095;</a>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="self.currentSlide(1)"></span>
+        <span class="dot" onclick="self.currentSlide(2)"></span>
+        <span class="dot" onclick="self.currentSlide(3)"></span>
+    </div>
 
 </div>
-
-</html>

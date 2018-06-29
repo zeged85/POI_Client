@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <style>
+        #content {
+            position: absolute;
+            top: 7%;
+            width: 100%;
+            height: 93%;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c6/Be%27er_Sheva_at_night.jpg');
+            background-repeat: no-repeat;
+        }
+
+        #head {
+            text-align: center;
+        }
+
+        #reg {
+            position: absolute;
+            top: 5%;
+            left: 37%;
+            width: 25%;
+        }
+
+        label {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <div id="reg" ng-app="registerController">
+            <div id="head">
+                <h3>Register</h3>
+            </div>
+
+            <input type="text" placeholder="FirstName" class="form-control">
+            <input type="text" placeholder="LastName" class="form-control">
+            <input type="text" placeholder="City" class="form-control">
+            <select name="Country" id="Country" class="form-control" aria-placeholder="Country">
+                <option hidden>Country</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+            <input type="text" placeholder="Email" class="form-control">
+            <label>choose at least two categories:</label>
+            <br>
+            <input type="checkbox" placeholder="Category"> Resturants
+            <br>
+            <input type="checkbox" placeholder="Category"> Parks
+            <br>
+            <input type="checkbox" placeholder="Category"> Academic institutions
+            <br>
+            <input type="checkbox" placeholder="Category"> nof
+            <br>
+            <label>choose at least one question:</label>
+            <br>
+            <input type="checkbox" placeholder="Question"> Q1
+            <br>
+            <input type="checkbox" placeholder="Question"> Q2
+            <br>
+            <br>
+            <button class="btn btn-secondary btn-sm">Submit</button>
+
+
+        </div>
+
+    </div>
+</body>
+
+</html>

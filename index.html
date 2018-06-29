@@ -1,55 +1,53 @@
+<!DOCTYPE html>
 <html ng-app="citiesApp">
-
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <title>Cities App</title>
-<link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body ng-controller="indexController as indxCtrl">
 
-        <ul>
-            <li>
-                <a class="active" href="#/">Home</a>
-            </li>
-            <li>
-                <a href="#/about">About</a>
-            </li>
-            <li>
-                <a href="#/poi">POI</a>
-            </li>
-            <li>
-                <a href="#/service">service</a>
-            </li>
-            <li>
-                <a href="#/favorites">favorites</a>
-            </li>
-            <li>
-                <a href="#/login">login</a>
-            </li>
-            <span ng-model="indxCtrl.userName">hello {{indxCtrl.userName}}</span>
-        </ul>
+    <ul>
+        <li>
+            <a href="#/home">Home</a>
+        </li>
+        <li>
+            <a href="#/about">About</a>
+        </li>
+        <li>
+            <a href="#/poi">POI</a>
+        </li>
+        <li>
+            <a href="#/service">service</a>
+        </li>
+        <li>
+            <a href="#/favorites">favorites</a>
+        </li>
+        <span ng-model="indxCtrl.userName">hello {{indxCtrl.userName}}</span>
+    </ul>
 
-        <br>
-        <br>
-        <div ng-view></div>
+    <br>
+    <br>
+    <div ng-view></div>
 
 
 
-        
-
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-        <script src="node_modules/angular-local-storage/dist/angular-local-storage.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
-        <script src="app.js"></script>
-        <script src="indexController.js"></script>
-        <script src="components/About/aboutController.js"></script>
-        <script src="components/POI/poiCtrl.js"></script>
-        <script src="components/Services/serviceController.js"></script>
-        <script src="components/Services/localStorageModel.js"></script>
-        <script src="components/favorites/favorites.controller.js"></script>    
-        <script src="components/login/login.html"></script>
 
 
-    </body>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="node_modules/angular-local-storage/dist/angular-local-storage.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="indexController.js"></script>
+    <script src="components/About/aboutController.js"></script>
+    <script src="components/POI/poiCtrl.js"></script>
+    <script src="components/Services/serviceController.js"></script>
+    <script src="components/Services/localStorageModel.js"></script>
+    <script src="components/favorites/favoritesController.js"></script>
+    <script src="components/home/homeController.js"></script>
+    <script src="components/register/registerController.js"></script>
+    <script src="components/Login/loginController.js"></script>
+</body>
 </html>

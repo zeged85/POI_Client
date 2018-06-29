@@ -6,12 +6,14 @@ app.config(['$locationProvider', '$routeProvider', function($locationProvider, $
     $locationProvider.hashPrefix('');
 
 
-    $routeProvider.when('/', {
-        template: '<h1>This is the default route</h1>'
+    $routeProvider
+    .when('/', {
+        templateUrl: 'components/Login/login.html',
+        controller : 'loginController as loginController'
     })
         .when('/about', {
             templateUrl: 'components/About/about.html',
-            controller : 'aboutController as abtCtrl'
+            controller : 'aboutController as aboutController'
         })
         .when('/poi', {
             templateUrl: 'components/POI/poi.html',
@@ -22,12 +24,16 @@ app.config(['$locationProvider', '$routeProvider', function($locationProvider, $
             controller : 'serviceController as srvCtrl'
         })
         .when('/favorites', {
-            templateUrl: 'components/favorites/favorites.template.html',
-            controller : 'serviceController as srvCtrl'
+            templateUrl: 'components/favorites/favorites.html',
+            controller : 'favoritesController as favCtrl'
         })
-        .when('/login', {
-            templateUrl: 'components/login/login.html',
-            controller : 'serviceController as srvCtrl'
+        .when('/home', {
+            templateUrl: 'components/home/home.html',
+            controller : 'homeController as homCtrl'
+        })
+        .when('/register', {
+            templateUrl: 'components/register/register.html',
+            controller : 'registerController as registerController'
         })
         .otherwise({ redirectTo: '/' });
 

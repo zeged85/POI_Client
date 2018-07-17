@@ -84,7 +84,7 @@ angular.module('citiesApp')
         }
 
         self.getPOIs = function() {
-            $http.get(serverUrl + "/poi/getPOIs, user")
+            $http.get(serverUrl + "poi/getPOIs")
             .then(function(response){
                 self.reg.content = response.data
             }, function (response) {

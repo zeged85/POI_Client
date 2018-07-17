@@ -1,5 +1,5 @@
 angular.module('citiesApp')
- .controller('poiCtrl', [function() {
+ .controller('poiCtrl', ['$http',function($http) {
  
 
     self = this;
@@ -9,6 +9,22 @@ angular.module('citiesApp')
         ,2 : {name:"Jerusalem", state: "Israel", image: "https://cdni.rt.com/files/2017.12/article/5a3fe04efc7e93cd698b4567.jpg"}
         ,3 : {name:"London", state: "England", image: "http://www.ukguide.co.il/Photos/England/London/British-Royal-Tour.jpg"}
     }
+
+    let serverUrl = 'http://localhost:4000/'
+
+
+    $http.get(serverUrl + "poi/getPOIs")
+    .then(function(response){
+        //self.reg.content = response.data
+        self.cities =response.data
+        console.log("get pois")
+    }, function (response) {
+        //self.reg.content = response.data
+        //Second function handles error
+        //self.reg.content = "Something went wrong";
+        console.log("didnt get pois")
+    });
+   
 
     self.selectedCity= function (id){
 

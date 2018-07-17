@@ -29,7 +29,7 @@ angular.module('citiesApp')
             $location.path('/poi')
         }
 
-        let serverUrl = 'http://localhost:8080/'
+        let serverUrl = 'http://localhost:4000/'
 
         let user = {
             userName: "Shir",
@@ -67,7 +67,7 @@ angular.module('citiesApp')
 
         self.reg = function () {
             // register user
-            $http.post(serverUrl + "reg/", user)
+            $http.post(serverUrl + "users/reg", user)
                 .then(function (response) {
                     //First function handles success
                     self.reg.content = response.data;
@@ -75,7 +75,7 @@ angular.module('citiesApp')
                 }, function (response) {
                     self.reg.content = response.data
                     //Second function handles error
-                    // self.reg.content = "Something went wrong";
+                    self.reg.content = "Something went wrong";
                 });
         }
 
@@ -83,7 +83,17 @@ angular.module('citiesApp')
             localStorageModel.addLocalStorage('token', self.login.content)
         }
 
-
+        self.getPOIs = function() {
+            $http.get(serverUrl + "/poi/getPOIs, user")
+            .then(function(response){
+                self.reg.content = response.data
+            }, function (response) {
+                self.reg.content = response.data
+                //Second function handles error
+                self.reg.content = "Something went wrong";
+            });
+        }
+    
 
     }]);
 

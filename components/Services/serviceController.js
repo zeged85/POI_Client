@@ -2,25 +2,25 @@
 
 angular.module('citiesApp')
     // .service('myService', function () { this.set = function() {return "hello"} })
-    .service('setHeadersToken',[ '$http', function ($http) {
+    .service('setHeadersToken', ['$http', function ($http) {
 
         let token = ""
 
         this.set = function (t) {
             token = t
-            $http.defaults.headers.common[ 'x-access-token' ] = t
+            $http.defaults.headers.common['x-access-token'] = t
             // $httpProvider.defaults.headers.post[ 'x-access-token' ] = token
             console.log("set")
 
         }
 
-        this.userName='shir'
- 
+        this.userName = 'shir'
+
 
     }])
 
-    
-    .controller('serviceController', ['$location', '$http', 'setHeadersToken','localStorageModel', function ($location, $http, setHeadersToken,localStorageModel) {
+
+    .controller('serviceController', ['$location', '$http', 'setHeadersToken', 'localStorageModel', function ($location, $http, setHeadersToken, localStorageModel) {
 
 
         self = this;
@@ -40,7 +40,7 @@ angular.module('citiesApp')
 
         self.signUp = function () {
             // register user
-            $http.post(serverUrl + "Users/", user)
+            $http.post(serverUrl + "users/", user)
                 .then(function (response) {
                     //First function handles success
                     self.signUp.content = response.data;
@@ -75,7 +75,11 @@ angular.module('citiesApp')
                 }, function (response) {
                     self.reg.content = response.data
                     //Second function handles error
+<<<<<<< HEAD
                     self.reg.content = "Something went wrong";
+=======
+                     self.reg.content = "Something went wrong";
+>>>>>>> aa5eeac846292f9554c42709f9e9c69f22b916ca
                 });
         }
 

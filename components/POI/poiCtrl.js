@@ -2,7 +2,7 @@ angular.module('citiesApp')
     .controller('poiCtrl', ['poiService', function (poiService) {
 
 
-        self = this;
+        self = this
 
         //self.cities = {}
        
@@ -17,8 +17,8 @@ angular.module('citiesApp')
         self.sites = poiService.re()
         
         self.selectedSite = function (id) {
-
-            console.log(self.selected)
+            console.log(id)
+            poiService.selected = id
         }
 
         self.addToCart = function (id, sites) {

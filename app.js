@@ -35,6 +35,10 @@ app.config(['$locationProvider', '$routeProvider', function($locationProvider, $
             templateUrl: 'components/register/register.html',
             controller : 'registerController as registerController'
         })
+        .when('/poiPage', {
+            templateUrl: 'components/poiPage/poiPage.html',
+            controller : 'poiPageController as poiPageController'
+        })
         .otherwise({ redirectTo: '/' });
 
         

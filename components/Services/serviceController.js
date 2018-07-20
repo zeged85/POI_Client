@@ -20,85 +20,105 @@ angular.module('citiesApp')
     }])
 
 
-    .controller('serviceController', ['$location', '$http', 'setHeadersToken', 'localStorageModel', function ($location, $http, setHeadersToken, localStorageModel) {
-
-
-        self = this;
-
-        self.directToPOI = function () {
-            $location.path('/poi')
-        }
-
+    .service('poiService', ['$http', function ($http) {
         let serverUrl = 'http://localhost:4000/'
+        self = this
+        
+        
 
-        let user = {
-            userName: "Shir",
-            password: "abcd",
-            isAdmin: true
-        }
-
-
-        self.signUp = function () {
-            // register user
-            $http.post(serverUrl + "users/", user)
-                .then(function (response) {
-                    //First function handles success
-                    self.signUp.content = response.data;
-                }, function (response) {
-                    //Second function handles error
-                    self.signUp.content = "Something went wrong";
-                });
-        }
-
-        self.login = function () {
-            // register user
-            $http.post(serverUrl + "Users/login", user)
-                .then(function (response) {
-                    //First function handles success
-                    self.login.content = response.data.token;
-                    setHeadersToken.set(self.login.content)
-
-
-                }, function (response) {
-                    //Second function handles error
-                    self.login.content = "Something went wrong";
-                });
-        }
-
-        self.reg = function () {
-            // register user
-            $http.post(serverUrl + "users/reg", user)
-                .then(function (response) {
-                    //First function handles success
-                    self.reg.content = response.data;
-
-                }, function (response) {
-                    self.reg.content = response.data
-                    //Second function handles error
-<<<<<<< HEAD
-                    self.reg.content = "Something went wrong";
-=======
-                     self.reg.content = "Something went wrong";
->>>>>>> aa5eeac846292f9554c42709f9e9c69f22b916ca
-                });
-        }
-
-        self.addTokenToLocalStorage = function () {
-            localStorageModel.addLocalStorage('token', self.login.content)
-        }
-
-        self.getPOIs = function() {
             $http.get(serverUrl + "poi/getPOIs")
-            .then(function(response){
-                self.reg.content = response.data
+            .then(function (response) {
+                console.log('fgds')
+                //self.reg.content = response.data
+                console.log(response.data)
+                pois = response.data
+                
             }, function (response) {
-                self.reg.content = response.data
+                //self.reg.content = response.data
                 //Second function handles error
-                self.reg.content = "Something went wrong";
+                //self.reg.content = "Something went wrong";
+                console.log("didnt get pois")
             });
-        }
-    
 
-    }]);
+       
+
+    }])
+
+        .controller('serviceController', ['$location', '$http', 'setHeadersToken', 'localStorageModel', function ($location, $http, setHeadersToken, localStorageModel) {
+
+
+            self = this;
+
+            self.directToPOI = function () {
+                $location.path('/poi')
+            }
+
+            let serverUrl = 'http://localhost:4000/'
+
+            let user = {
+                userName: "Shir",
+                password: "abcd",
+                isAdmin: true
+            }
+
+
+            self.signUp = function () {
+                // register user
+                $http.post(serverUrl + "users/", user)
+                    .then(function (response) {
+                        //First function handles success
+                        self.signUp.content = response.data;
+                    }, function (response) {
+                        //Second function handles error
+                        self.signUp.content = "Something went wrong";
+                    });
+            }
+
+            self.login = function () {
+                // register user
+                $http.post(serverUrl + "Users/login", user)
+                    .then(function (response) {
+                        //First function handles success
+                        self.login.content = response.data.token;
+                        setHeadersToken.set(self.login.content)
+
+
+                    }, function (response) {
+                        //Second function handles error
+                        self.login.content = "Something went wrong";
+                    });
+            }
+
+            self.reg = function () {
+                // register user
+                $http.post(serverUrl + "users/reg", user)
+                    .then(function (response) {
+                        //First function handles success
+                        self.reg.content = response.data;
+
+                    }, function (response) {
+                        self.reg.content = response.data
+                        //Second function handles error
+                        self.reg.content = "Something went wrong";
+                    });
+            }
+
+            self.addTokenToLocalStorage = function () {
+                localStorageModel.addLocalStorage('token', self.login.content)
+            }
+
+            self.getPOIs = function () {
+                $http.get(serverUrl + "poi/getPOIs")
+                    .then(function (response) {
+                        self.reg.content = response.data
+                    }, function (response) {
+                        self.reg.content = response.data
+                        //Second function handles error
+                        self.reg.content = "Something went wrong";
+                    });
+            }
+
+
+        }]);
 
 

@@ -1,43 +1,33 @@
 angular.module('citiesApp')
- .controller('poiCtrl', ['$http',function($http) {
- 
-
-    self = this;
-
-    self.cities = {
-        1 : {name:"Paris", state: "France", image: "https://media-cdn.tripadvisor.com/media/photo-s/0d/f5/7c/f2/eiffel-tower-priority.jpg"}
-        ,2 : {name:"Jerusalem", state: "Israel", image: "https://cdni.rt.com/files/2017.12/article/5a3fe04efc7e93cd698b4567.jpg"}
-        ,3 : {name:"London", state: "England", image: "http://www.ukguide.co.il/Photos/England/London/British-Royal-Tour.jpg"}
-    }
-
-    let serverUrl = 'http://localhost:4000/'
+    .controller('poiCtrl', ['poiService', function (poiService) {
 
 
-    $http.get(serverUrl + "poi/getPOIs")
-    .then(function(response){
-        //self.reg.content = response.data
-        self.cities =response.data
-        console.log("get pois")
-    }, function (response) {
-        //self.reg.content = response.data
-        //Second function handles error
-        //self.reg.content = "Something went wrong";
-        console.log("didnt get pois")
-    });
-   
+        self = this;
 
-    self.selectedCity= function (id){
+        self.cities = {
+           
+        }
 
-        console.log (self.selected )
-    }
+       
+        self.cities = poiService.pois
 
-    self.addToCart = function (id, city) {
+      
 
-        console.log(id)
-        console.log(city)
-        console.log(self.amount[id])
+        
+
+        self.selectedCity = function (id) {
+
+            console.log(self.selected)
+        }
+
+        self.addToCart = function (id, city) {
+
+            console.log(id)
+            console.log(city)
+            console.log(self.amount[id])
 
 
-    }
+        }
 
- }]);
+    }])
+

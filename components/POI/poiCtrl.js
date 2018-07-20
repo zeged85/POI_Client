@@ -4,16 +4,16 @@ angular.module('citiesApp')
 
         self = this;
 
-        self.cities = {
-           
-        }
-
+        //self.cities = {}
        
-        self.cities = poiService.pois
-
-      
+        //self.cities = poiService.pois
 
         
+
+        poiService.get().then(function(data){
+            self.cities = data
+            console.log(data)
+        })
 
         self.selectedCity = function (id) {
 

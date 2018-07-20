@@ -1,0 +1,16 @@
+<div>
+    <div ng-model="poiCtrl.sites" ng-repeat="(id , site) in poiCtrl.sites">
+         Site name:
+        <a href="#home" target="_blank" ng-model="poiCtrl.selected" value="{{site.name}}_{{id}}">{{site.name}} </a>
+        <br>
+        <img ng-style="{'height': '100px'}" ng-src="{{site.image}} ">
+        <br>
+        Description:
+        <br>
+        {{site.description}}
+        <br>
+        Adress:
+        {{site.adress}}
+
+    </div>
+</div>

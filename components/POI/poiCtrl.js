@@ -10,21 +10,21 @@ angular.module('citiesApp')
 
         
         
-        self.cities = poiService.get().then(function(data){
-            self.cities = data
+        self.sites = poiService.get().then(function(data){
+            self.sites = data
         })
 
-        self.cities = poiService.re()
+        self.sites = poiService.re()
         
-        self.selectedCity = function (id) {
+        self.selectedSite = function (id) {
 
             console.log(self.selected)
         }
 
-        self.addToCart = function (id, city) {
+        self.addToCart = function (id, sites) {
 
             console.log(id)
-            console.log(city)
+            console.log(site)
             console.log(self.amount[id])
 
 

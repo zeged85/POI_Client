@@ -76,18 +76,22 @@
 
 
 
-<div id="content" ng-controller="loginController" class="border">
+<div id="content" ng-controller="loginController as logCtrl" class="border">
     <div id ="upper" >
         <div id="log">
             <div id="head">
                 <h3>Login</h3>
             </div>
             <div class="border">
-                <input type="text" placeholder="Username" class="form-control">
+                <form ng-submit="logCtrl.submit()" name="myForm">
+
+                <input type="text" placeholder="Username" class="form-control" ng-model="logCtrl.username" required ng-minlength="4">
                 <br>
-                <input type="text" placeholder="password" class="form-control">
+                <input type="text" placeholder="password" class="form-control" ng-model="logCtrl.password" required>
                 <br>
-                <button class="btn btn-secondary btn-sm">Submit</button>
+                <button type ="submit", value ="submit" class="btn btn-secondary btn-sm" ng-disabled="myForm.$invalid">Submit</button>
+                </form>
+
                 <div id="go_to_register">
                     <a type="link" href="#/register"> not registered yet?</a>
 

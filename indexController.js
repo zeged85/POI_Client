@@ -1,5 +1,5 @@
 angular.module('citiesApp')
-    .controller('indexController',['setHeadersToken', function (setHeadersToken) {
+    .controller('indexController',['setHeadersToken', 'poiService', function (setHeadersToken,poiService) {
 
 
         self = this;

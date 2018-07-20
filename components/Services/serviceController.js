@@ -36,17 +36,17 @@ angular.module('citiesApp')
                 .then(function (response) {
                     console.log('fgds')
                     //self.reg.content = response.data
-                    console.log(response.data)
+                    //console.log(response.data)
                     fresh = true
                     cities=response.data
-                    return response.data
+                    return cities
                     
                 }, function (response) {
                     //self.reg.content = response.data
                     //Second function handles error
                     //self.reg.content = "Something went wrong";
                     console.log("didnt get pois")
-                    return cities
+                   // return cities
                 });
             }
             else{
@@ -56,10 +56,13 @@ angular.module('citiesApp')
                     ,3 : {name:"London", state: "England", image: "http://www.ukguide.co.il/Photos/England/London/British-Royal-Tour.jpg"}
                 })
             }
- 
 
         }
     
+         
+        this.re = function(){
+            return cities
+        }
     }])
 
         .controller('serviceController', ['$location', '$http', 'setHeadersToken', 'localStorageModel', function ($location, $http, setHeadersToken, localStorageModel) {

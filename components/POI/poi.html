@@ -1,5 +1,6 @@
-<table>
-        <tr ng-repeat="(id , city) in poiCtrl.cities">
+<div ng-controller="poiCtrl as poiCtrl">
+<table >
+        <tr ng-model = "poiCtrl.cities" ng-repeat="(id , city) in poiCtrl.cities">
                 <td>
                         <button ng-click="poiCtrl.selectedCity(id)"> add city</button>
                 </td>
@@ -30,4 +31,6 @@
     
         
 </table>
+</div>
         Selected city: {{poiCtrl.selected}}
+

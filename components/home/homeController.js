@@ -1,5 +1,5 @@
 angular.module('citiesApp')
-    .controller('homeController',[ '$routeProvider', function ($routeProvider) {
+    .controller('homeController', ['$routeProvider', function ($routeProvider) {
         self = this;
 
     }]);

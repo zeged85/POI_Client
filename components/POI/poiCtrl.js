@@ -9,12 +9,13 @@ angular.module('citiesApp')
         //self.cities = poiService.pois
 
         
-
-        poiService.get().then(function(data){
+        
+        self.cities = poiService.get().then(function(data){
             self.cities = data
-            console.log(data)
         })
 
+        self.cities = poiService.re()
+        
         self.selectedCity = function (id) {
 
             console.log(self.selected)

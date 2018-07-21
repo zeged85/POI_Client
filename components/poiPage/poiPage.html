@@ -1,28 +1,23 @@
 <div ng-controller="poiPageController as poiPageController">
-    <div ng-model="poiPageController.sites" ng-repeat="(id , site) in poiPageController.sites">
-         Site name:
-        <a href="#home" target="_blank" ng-model="poiPageController.selected" value="{{site.name}}_{{id}}">{{site.name}} </a>
-        <br>
-        <img ng-style="{'height': '100px'}" ng-src="{{site.image}} ">
-        <br>
-        <label for="description">Description:</label> 
-        {{site.description}}
-        <br>
-        <label for="adress">Adress:</label>
-        {{site.adress}}
-        <br>
-        <label for="category">Category:</label>
-        {{site.category}}
-        <br>
-        <label for="Score">Score:</label>
-        {{site.score}}
-        <br>
-        <label for="NumOfVotes">Number Of Views</label>
-        {{site.numOfViews}}
-        <br>
-    </div>
-    <h3>Reviews</h3>
-    <div ng-model="poiPageController.reviews" ng-repeat="(id , review) in poiPageController.reviews">
-        {{review.review}}
-    </div>
+    
+    <label for="name"> Site name:</label> 
+    {{poiPageController.we}}
+   <br>
+    <img ng-style="{'height': '100px'}" ng-src="{{site.image}} ">
+    <br>
+    <label for="description">Description:</label>
+    {{chosenSite.description}}
+    <br>
+    <label for="adress">Adress:</label>
+    {{site.adress}}
+    <br>
+    <label for="category">Category:</label>
+    {{site.category}}
+    <br>
+    <label for="Score">Score:</label>
+    {{site.score}}
+    <br>
+    <label for="NumOfVotes">Number Of Views</label>
+    {{site.numOfViews}}
+    <br>
 </div>

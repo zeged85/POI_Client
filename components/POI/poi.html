@@ -1,13 +1,72 @@
-<div ng-controller="poiCtrl as poiCtrl">
+<style>
+        #content {
+                position: fixed;
+                height: 100%;
+                width: 100%;
+                top: 7%;
+                overflow: auto;
+                background-color: darkslategray
+        }
 
-        <div ng-model="poiCtrl.sites" ng-repeat="(id , site) in poiCtrl.sites">
-               
-                Site name:
-                <a href="#poiPage" target="_blank" ng-click="poiCtrl.selectedSite(id)"  value="{{site.name}}_{{id}}" ng-model="poiCtrl.selected" >{{site.name}} {{poiCtrl.id}} </a>
-                <br>
-                <img ng-style="{'height': '100px'}" ng-src="{{site.pic}} ">
-                <br>
-               <button>Add to Favoriets</button>
-        </div>
+        #poiTable {
+                position: absolute;
+                top: 0%;
+                width: 100%;
+
+
+        }
+</style>
+
+
+<div ng-controller="poiCtrl as poiCtrl" id="content" class="table">
+        <table id="poiTable">
+                <thead>
+                        <tr class="thead-dark">
+                                <th scope="col"></th>
+
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>
+                                        <h2>Points Of Interest</h2>
+                                </th>
+                                <th scope="col">category
+                                        <select type="text" ng-model="cat_filter" ng-options="x.categories for x in poiCtrl.categories"></select>
+                                </th>
+                                <th scope="col">
+                                        <button ng-click="clearfilter()" class="btn">Clear filter</button>
+                                </th>
+
+
+
+                        </tr>
+
+                        <tr>
+                                <th></th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Score</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                        </tr>
+                </thead>
+                <tbody ng-repeat="x in poiCtrl.sites | filter:{category:cat_filter.categories, rating:rating_filter}">
+
+                        <tr>
+                                <th> </th>
+                                <td class="poitable-td">
+                                        <a href="#poiPage" target="_blank" ng-click="poiCtrl.selectedSite(x.id)" >{{x.name }}</a>
+                                </td>
+                                <td>{{x.category}}</td>
+                                <td>{{x.total_score | number : 1}}</td>
+                                <td>
+                                        <img ng-style="{'height': '100px'}" ng-src="{{x.pic}} ">
+                                </td>
+                                <td>
+                                        <img src="./in.png" style="height: 50px; width: 50px;"> </td>
+                                <td></td>
+                        </tr>
+                </tbody>
+        </table>
 </div>
-

@@ -43,10 +43,7 @@ angular.module('citiesApp')
             console.log("didnt get pois")
             // return cities
         });
-
-<<<<<<< HEAD
-
-    }
+   }
     else{
         self.sites = mysites
     }

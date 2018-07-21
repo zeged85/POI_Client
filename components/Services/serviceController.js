@@ -31,7 +31,7 @@ angular.module('citiesApp')
             , 3: { name: "London", state: "England", pic: "http://www.ukguide.co.il/Photos/England/London/British-Royal-Tour.jpg" }
         }
 
-        this.get = function () {
+        self.get = function () {
 
             return self.sites
         }
@@ -73,7 +73,7 @@ angular.module('citiesApp')
         }
     }])
 
-    .controller('serviceController', ['$location', '$http', 'setHeadersToken', 'localStorageModel', '$scope', function ($location, $http, setHeadersToken, localStorageModel, $scope) {
+    .controller('serviceController', ['$location', '$http', 'setHeadersToken', 'localStorageModel', function ($location, $http, setHeadersToken, localStorageModel) {
 
 
         self = this;

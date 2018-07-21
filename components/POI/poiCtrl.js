@@ -10,18 +10,20 @@ angular.module('citiesApp')
 
         self.categories = ['ret', '123']
         
-        self.sites = poiService.get().then(function(data){
+       /* self.sites = poiService.get().then(function(data){
             self.sites = data
         })
 
 
        self.sites = poiService.allsites
-        
+        */
         //console.log(self.sites)
 
-        self.selectedSite = function (id) {
-            console.log(id)
-            poiService.selected = id
+      //  self.allsites=poiService.allsites
+
+        self.sites = []
+
+        poiService.get()
 /*
         self.sites = poiService.re()
         
@@ -29,7 +31,7 @@ angular.module('citiesApp')
             poiService.setChosenSite(site)
             
 */
-        }
+        
 
         
 

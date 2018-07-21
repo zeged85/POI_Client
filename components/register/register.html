@@ -37,40 +37,39 @@
 
 <body>
     <div id="content">
-        <div id="reg" ng-app="registerController">
+        <div id="reg" ng-controller="registerController as regCtrl">
             <div id="head">
                 <h3>Register</h3>
             </div>
             <div class="border border-dark">
-                <form ng-submit="registerController.user()">
-                    <input ng-model="registerController.firstName" type="text" placeholder="FirstName" class="form-control">
-                    <input ng-model="registerController.lastName" type="text" placeholder="LastName" class="form-control">
-                    <input ng-model="registerController.city" type="text" placeholder="City" class="form-control">
-                    <select name="Country" id="Country" class="form-control" aria-placeholder="Country">
-                        <option hidden>Country</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                    </select>
-                    <input ng-model = "registerController.email" type="text" placeholder="Email" class="form-control">
+                <form ng-submit="regCtrl.submit()">
+                    <input ng-model="regCtrl.username" type="text" placeholder="UserName" class="form-control">
+                    <input ng-model="regCtrl.firstName" type="text" placeholder="FirstName" class="form-control">
+                    <input ng-model="regCtrl.lastName" type="text" placeholder="LastName" class="form-control">
+                    <input ng-model="regCtrl.city" type="text" placeholder="City" class="form-control">
+                    <select name="Country" id="Country" class="form-control" aria-placeholder="Country" ng-model="regCtrl.selectedCountry" ng-options="item for item in regCtrl.countries">
+                    <input ng-model = "regCtrl.email" type="text" placeholder="Email" class="form-control">
                     <label>choose at least two categories:</label>
                     <br>
-                    <input type="checkbox" placeholder="Category"> Resturants
+                    <input type="checkbox" placeholder="Category" ng-model="regCtrl.category1"> Resturants
                     <br>
-                    <input type="checkbox" placeholder="Category"> Parks
+                    <input type="checkbox" placeholder="Category" ng-model="regCtrl.category2"> Parks
                     <br>
-                    <input type="checkbox" placeholder="Category"> Academic institutions
+                    <input type="checkbox" placeholder="Category" ng-model="regCtrl.category3"> Academic institutions
                     <br>
-                    <input type="checkbox" placeholder="Category"> nof
+                    <input type="checkbox" placeholder="Category" ng-model="regCtrl.category4"> nof
                     <br>
                     <label>choose at least one question:</label>
                     <br>
-                    <input type="checkbox" placeholder="Question"> Q1
+                    <input type="checkbox" placeholder="Question"> {{regCtrl.Q1}}
                     <br>
-                    <input type="checkbox" placeholder="Question"> Q2
+                    <input type="checkbox" placeholder="Question"> {{regCtrl.Q2}}
+                    <br>
+                    <input ng-model="regCtrl.password" type="text" placeholder="Password" class="form-control">
                     <br>
                     <br>
                     <button type="submit" class="btn btn-secondary btn-sm">Submit</button>
-                    {{registerController.firstName}}
+                    {{regCtrl.firstName}}
                 </form>
                 
             </div>

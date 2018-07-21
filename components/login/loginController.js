@@ -2,7 +2,7 @@ angular.module('citiesApp')
     .controller('loginController',['$http','setHeadersToken','$scope', function ($http,setHeadersToken,$scope) {
         self = this;
         
-        self.username = "";
+        self.username = "dfgdfg";
         self.password = "";
         
 

@@ -1,31 +1,27 @@
 angular.module('citiesApp')
-    .controller('poiPageController' , ['poiService','$http', function (poiService, $http) {
+    .controller('poiPageController', ['poiService', function (poiService) {
 
-        let serverUrl = 'http://localhost:4000/'
-        self = this;
-       
+        
         self.sites = poiService.get().then(function(data){
+            sites = []
             self.sites = data
         })
 
-        self.sites = poiService.re()
+        self.getId = function(){
+           self.id = poiService.getId()
+        }
+
+        self.find = function(id){
+            self.site = sites.indexOf(id)
+        }
         
-        self.selected = poiService.getId()
-       
-        console.log(self.selected)
+        self.find(self.id)
+        
 
-        var str = 'poi/getPOIdata?id=' + self.selected
-       
 
-        $http.get(serverUrl + str)
-        .then(function (response) {
-            console.log('fgds1SS')
-            //self.reg.content = response.data
-            console.log(response.data)  
-            reviews=response.data
-        }, function (response) {
-            console.log("didnt get reviews")
-        });
+
+
+
 
 
 

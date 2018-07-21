@@ -1,5 +1,5 @@
 angular.module('citiesApp')
-    .controller('poiCtrl', ['poiService','$rootScope', function (poiService,$rootScope) {
+    .controller('poiCtrl', ['poiService', function (poiService) {
 
 
         self = this;
@@ -9,6 +9,7 @@ angular.module('citiesApp')
         //self.cities = poiService.pois
 
         self.categories = ['ret', '123']
+<<<<<<< HEAD
         
        /* self.sites = poiService.get().then(function(data){
             self.sites = data
@@ -24,6 +25,18 @@ angular.module('citiesApp')
         self.sites = []
 
         poiService.get()
+=======
+
+
+
+       //self.sites = poiService.allsites
+        
+        //console.log(self.sites)
+
+        self.selectedSite = function (id) {
+            poiService.id = id
+        }
+>>>>>>> f4482c4710d575014f8833744a97d5de1cc10183
 /*
         self.sites = poiService.re()
         

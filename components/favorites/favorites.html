@@ -8,3 +8,17 @@
         left: 40%;
     }
 </style>
+
+
+<div ng-controller="favoritesController as favCtrl">
+
+    <div ng-model="favCtrl.favs" ng-repeat="(id , site) in favCtrl.favs">
+           
+            Site name:
+            <a href="#poiPage" target="_blank" ng-click="poiCtrl.selectedSite(id)"  value="{{site.name}}_{{id}}" ng-model="poiCtrl.selected" >{{site.name}} {{poiCtrl.id}} </a>
+            <br>
+            <img ng-style="{'height': '100px'}" ng-src="{{site.pic}} ">
+            <br>
+           <button>Add to Favoriets</button>
+    </div>
+</div>

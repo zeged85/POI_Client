@@ -1,12 +1,12 @@
-<div ng-controller="poiPageController as poiPageController">
-    
+<div ng-controller="poiPageController as poiPageController" >
+    <divng-repeat="site in poiPageController.sites">
     <label for="name"> Site name:</label> 
-    {{poiPageController.we}}
+    {{site.name}}
    <br>
     <img ng-style="{'height': '100px'}" ng-src="{{site.image}} ">
     <br>
     <label for="description">Description:</label>
-    {{chosenSite.description}}
+    {{site.description}}
     <br>
     <label for="adress">Adress:</label>
     {{site.adress}}
@@ -20,4 +20,4 @@
     <label for="NumOfVotes">Number Of Views</label>
     {{site.numOfViews}}
     <br>
-</div>
+</div></div>

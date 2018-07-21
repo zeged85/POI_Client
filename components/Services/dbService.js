@@ -35,8 +35,16 @@ angular.module('citiesApp')
             // return cities
         });
 
+        self.id = 1
+        self.setId = function(id){
+            this.id = id
+            console.log(id)
+            console.log(this.self.id)
+        }
 
-
+        self.getId = function(){
+            return this.id
+        }
 
 
 }])

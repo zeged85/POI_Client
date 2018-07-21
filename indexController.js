@@ -1,5 +1,5 @@
 angular.module('citiesApp')
-    .controller('indexController',['setHeadersToken', function (setHeadersToken) {
+    .controller('indexController',['setHeadersToken','$scope', function (setHeadersToken,$scope) {
 
 
         self = this;

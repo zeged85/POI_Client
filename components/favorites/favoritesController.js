@@ -19,9 +19,7 @@ angular.module('citiesApp')
 
 
 
-                console.log("didnt get pois")
-                console.log(response)
-                // return cities
+               
             
            
 

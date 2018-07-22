@@ -72,7 +72,7 @@ angular.module('citiesApp')
 
     }])
 
-    .service('favService', ['$http', function ($http) {
+    .service('favService', ['$http','localStorageModel', function ($http,localStorageModel) {
         let serverUrl = 'http://localhost:4000/'
         self = this
 
@@ -115,9 +115,23 @@ angular.module('citiesApp')
 
 
         
+        self.reset = function(){
+            fresh=false;
+            myfavs=[]
+            //self.pois = []
+            localStorageModel.removeLocalStorage("favs")
+        }
 
         self.get = function () {
             console.log("getting favs")
+            var favs = localStorageModel.getLocalStorage("favs")
+            if (favs){
+                myfavs = favs
+                self.pois = myfavs
+               
+            }
+            else{
+
             if (fresh === false) {
                 fresh = true;
                 $http.get(serverUrl + "poi/getFavorites")
@@ -135,6 +149,8 @@ angular.module('citiesApp')
                              count+=1
                          }
                         //myfavs = response.data
+                        localStorageModel.removeLocalStorage("favs")
+                        localStorageModel.addLocalStorage("favs",myfavs)
                         console.log("got favss")
                         console.log(myfavs)
            
@@ -148,6 +164,7 @@ angular.module('citiesApp')
             else {
                 self.pois = myfavs
             }
+        }
         }
 
 

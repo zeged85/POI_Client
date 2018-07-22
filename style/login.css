@@ -35,7 +35,7 @@ a{
 .border {
     border-radius: 5px;
     padding: 8%;
-    background-color: slategrey
+    /* background-color: slategrey */
 }
 
 #go_to_register {
@@ -51,7 +51,7 @@ a{
     top: 66.3%;
     left: 0;
     width: 100%;
-    background-color: black;
+    /* background-color: black; */
 }
 
 #poi1 {

@@ -15,7 +15,6 @@ angular.module('citiesApp')
         
         self.selectedSite = function (site) {
             poiService.setPoi(site)
-            console.log(site.name)
         }
 
 

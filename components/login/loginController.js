@@ -21,7 +21,9 @@ angular.module('citiesApp')
                 setHeadersToken.set(response.data)
                 $scope.indxCtrl.userName = self.username
                 $scope.indxCtrl.guest = false
+
                 $rootScope.login = true
+
                 console.log(response.data)
                $location.path('/home')
 

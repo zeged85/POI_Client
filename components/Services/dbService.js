@@ -71,3 +71,82 @@ angular.module('citiesApp')
 
 
     }])
+
+    .service('favService', ['$http', function ($http) {
+        let serverUrl = 'http://localhost:4000/'
+        self = this
+
+        console.log("fav service init")
+        let myfavs = []
+
+        let fresh = false
+
+        self.set = function(favlist){
+            console.log("setting favs")
+            myfavs = []
+            console.log(favlist)
+            for (var i=0, len = favlist.length;i<len; i+=1){
+                console.log(favlist[i])
+                myfavs.push(favlist[i])
+            }
+            let body = {
+            poi_array : myfavs
+            }
+
+            $http.post(serverUrl + "poi/saveFavorites", body)
+            // .then(function (response) {
+         
+            //     console.log(response.data)
+          
+
+            // }, function (response) {
+            //     //Second function handles error
+            //    // self.login.content = "Something went wrong";
+            //    console.log(response)
+            // });
+        };
+
+
+
+
+
+
+        
+
+        self.get = function () {
+            console.log("getting favs")
+            if (fresh === false) {
+                fresh = true;
+                $http.get(serverUrl + "poi/getFavorites")
+                .then(function (response) {
+                        console.log('fgds')
+                        var count = 0
+                        myfavs = []
+                        while (count < response.data.length){
+
+                             console.log("adding")
+                             console.log(response.data[count].id)
+         
+                             self.pois.push(response.data[count].id)
+                             myfavs.push(response.data[count].id)
+                             count+=1
+                         }
+                        //myfavs = response.data
+                        console.log("got favss")
+                        console.log(myfavs)
+           
+
+                    }, function (response) {
+                     
+                        console.log("didnt get pois")
+                        // return cities
+                    });
+            }
+            else {
+                self.pois = myfavs
+            }
+        }
+
+
+
+    }]);

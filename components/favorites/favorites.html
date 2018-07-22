@@ -37,7 +37,7 @@
 
 <div  ng-controller="favoritesController as favCtrl" id="content">
     <div id="saveButton">
-        <button class="btn btn-dark" ng-click="saveFva()" >Save</button>
+        <button class="btn btn-dark" ng-click="favCtrl.saveFva()" >Save</button>
     </div>
     <div ng-repeat="fav in favCtrl.sites" id="poi" ng-if="favCtrl.pois.indexOf(fav.id) > -1">
         <label for="name"> Site name:</label>

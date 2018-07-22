@@ -21,17 +21,17 @@
         <li>
             <a href="#/poi">POI</a>
         </li>
-        <li>
-            <a href="#/service">service</a>
-        </li>
-        <li>
+        <li ng-show="login">
             <a href="#/favorites">favorites</a>
         </li>
-        <li>
+        <li ng-show="!login">
             <a href="#/log">log</a>
         </li>
-        <li>
+        <li ng-show="!login">
             <a href="#/reg">register</a>
+        </li>
+        <li ng-show="login">
+            <a href="#">LogOut</a>
         </li>
         <span ng-model="indxCtrl.userName">hello {{indxCtrl.userName}}</span>
     </ul>

@@ -1,5 +1,5 @@
 angular.module('citiesApp')
-    .controller('poiPageController', ['poiService', function (poiService) {
+    .controller('poiPageController', ['poiService','$scope','$rootScope', function (poiService,$scope,$rootScope) {
 
         self = this;
         // self.sites = []

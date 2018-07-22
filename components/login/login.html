@@ -87,19 +87,18 @@
                     
                 <input type="text" placeholder="Username" class="form-control" ng-model="logCtrl.username" ng-init=" logCtrl.username = 'barnie'" required ng-minlength="4">
                 <br>
-                {{logCtrl.username}}
                 <input type="text" placeholder="password" class="form-control" ng-model="logCtrl.password" ng-init="logCtrl.password = '1234'" required>
                 <br>
                 <button type ="submit", value ="submit" class="btn btn-secondary btn-sm" ng-disabled="myForm.$invalid">Submit</button>
                 </form>
 
-                <div id="go_to_register">
+                <div id="go_to_register" ng-show="!login">
                     <a type="link" href="#/register"> not registered yet?</a>
 
                 </div>
 
             </div>
-            <div id="pass-recovery">
+            <div id="pass-recovery" ng-show="!login">
                 <a type="link" href="#/" ng-click="loginController.recover = true"> forgot your password?</a>
                 <div ng-if="loginController.recover == true">
                     Q1

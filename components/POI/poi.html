@@ -56,7 +56,7 @@
                         <tr>
                                 <th> </th>
                                 <td class="poitable-td">
-                                        <a href="#poiPage" ng-click="poiCtrl.selectedSite(x)" >{{x.name }}</a>
+                                        <a href="#poiPage" ng-click="poiCtrl.selectedSite(x)">{{x.name }}</a>
                                 </td>
                                 <td>{{x.category}}</td>
                                 <td>{{x.total_score | number : 1}}</td>
@@ -64,7 +64,11 @@
                                         <img ng-style="{'height': '100px'}" ng-src="{{x.pic}} ">
                                 </td>
                                 <td>
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRKWyDkdpVqjjtQcdV2n4MWaJB9WNkPo0CKvFhN9vSufr5HgNl" ng-click="addToFavorits(x)" style="height: 50px; width: 50px;"> </td>
+                                        <div ng-show="login"  >
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRKWyDkdpVqjjtQcdV2n4MWaJB9WNkPo0CKvFhN9vSufr5HgNl" 
+                                                ng-click="poiCtrl.addToFavorits()" style="height: 50px; width: 50px;"> </td>
+
+                                </div>
                                 <td></td>
                         </tr>
                 </tbody>

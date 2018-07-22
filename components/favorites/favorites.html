@@ -1,18 +1,20 @@
 
 
-<!-- <style>
+<style>
     #content {
         position: fixed;
         background-image: url('https://i.ytimg.com/vi/_lQHg7NjZSI/maxresdefault.jpg');
         top: 7.5%;
         height: 92.5%;
         width: 100%;
+        overflow: auto;
     }
 
     #poi {
-        position: absolute;
+        position: relative;
         left: 10%;
-        top: 25%;
+        top: 10%;
+        width: 70%;
         text-align: left;
     }
     #image{
@@ -20,23 +22,23 @@
         top: 18%;
         left:35%;
     }
-</style> -->
+    #saveButton{
+        position: absolute;
+        top: 2%;
+        left: 95%;
+    }
+    #removeButton{
+        width: 20%;
+    }
+
+</style>
 
 
-<div>
-
-    <div >
-           
-        <label for="name">Site name:</label>
-        {{fav.name}}
-
-            
-            <br>
-
-    </div>
-</div>
 
 <div  ng-controller="favoritesController as favCtrl" id="content">
+    <div id="saveButton">
+        <button class="btn btn-dark" ng-click="saveFva()" >Save</button>
+    </div>
     <div ng-repeat="fav in favCtrl.sites" id="poi" ng-if="favCtrl.pois.indexOf(fav.id) > -1">
         <label for="name"> Site name:</label>
         {{fav.name}}
@@ -56,11 +58,9 @@
         <label for="NumOfVotes">Number Of Views</label>
         {{fav.numOfViews}}
         <br>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRKWyDkdpVqjjtQcdV2n4MWaJB9WNkPo0CKvFhN9vSufr5HgNl" ng-click="addToFavorits(poiPageController.poi)" style="height: 50px; width: 50px;">
+        <button id="removeButton" ng-click="favCtrl.removeFromFavorits(x)" class="form-control">Remove from favorits</button>
         <br>
         <br>
-        <label for="rank">Add Rank</label>
-        <input type="number" class="form-control">
     </div>
-    <img id="image" ng-style="{'height': '400px'}" ng-src="{{poiPageController.poi.pic}} ">
+    <img id="image" ng-style="{'height': '100px'}" ng-src="{{poiPageController.poi.pic}} ">
 </div>

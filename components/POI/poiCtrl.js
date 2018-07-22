@@ -1,9 +1,9 @@
 angular.module('citiesApp')
-    .controller('poiCtrl', ['poiService', function (poiService) {
+    .controller('poiCtrl', ['poiService','$scope','$rootScope', function (poiService,$scope,$rootScope) {
 
 
         self = this;
-
+      //  self.guest =  $scope.indxCtrl.guest
         //self.cities = {}
        
         //self.cities = poiService.pois

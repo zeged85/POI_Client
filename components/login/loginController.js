@@ -1,5 +1,5 @@
 angular.module('citiesApp')
-    .controller('loginController',['$http','setHeadersToken','$scope','$location','$rootScope', function ($http,setHeadersToken,$scope,$location,$rootScope) {
+    .controller('loginController',['$http','setHeadersToken','$scope','$location','$rootScope','localStorageModel', function ($http,setHeadersToken,$scope,$location,$rootScope,localStorageModel) {
         self = this;
         
         self.username = "dfgdfg";
@@ -24,6 +24,12 @@ angular.module('citiesApp')
 
                 $rootScope.login = true
 
+                localStorageModel.removeLocalStorage("username")
+                localStorageModel.addLocalStorage("username",self.username)
+
+                localStorageModel.removeLocalStorage("token")
+                localStorageModel.addLocalStorage("token",response.data)
+                
                 console.log(response.data)
                $location.path('/home')
 

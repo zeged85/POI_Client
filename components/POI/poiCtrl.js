@@ -8,6 +8,7 @@ angular.module('citiesApp')
         //self.cities = {}
        
         //self.cities = poiService.pois
+        favService.getSize()
 
         self.categories = ['ret', '123']
        /* self.sites = poiService.get().then(function(data){

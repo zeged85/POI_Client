@@ -13,7 +13,6 @@ angular.module('citiesApp')
         
         self.selectedSite = function (site) {
             poiService.setPoi(site)
-            console.log(site.name)
         }
 
         $http.get(serverUrl + "poi/getFavorites")
@@ -48,8 +47,5 @@ angular.module('citiesApp')
             });
            
 
-    
-            console.log(1234)
-            index = self.sites.indexOf(2,0)
-            console.log(self.sites[index])
+
     }]);

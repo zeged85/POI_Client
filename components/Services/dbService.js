@@ -107,8 +107,11 @@ angular.module('citiesApp')
         };
 
 
-
-
+        self.getSize = function(){
+            console.log(myfavs)
+            self.size = myfavs.length
+        }
+        
 
 
         

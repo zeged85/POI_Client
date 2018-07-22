@@ -1,11 +1,13 @@
 angular.module('citiesApp')
-    .controller('poiPageController',['poiService', function(poiService) {
+    .controller('poiPageController', ['poiService', function (poiService) {
 
-    self = this;
-    
-    self.getId = function(){
-    return poiService.getId()
-    }
-    self.getId()
-    console.log(self.id)
+        self = this;
+        // self.sites = []
+        // poiService.get()
+
+        self.poi = {}
+        //self.poi = poiService.getPoi()
+
+        poiService.getPoi()
+
     }]) 

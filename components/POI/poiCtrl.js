@@ -36,12 +36,13 @@ angular.module('citiesApp')
 /*
         self.sites = poiService.re()
         
-        self.selectedSite = function (site) {
-            poiService.setChosenSite(site)
+      
             
 */
-        
-
+self.selectedSite = function (site) {
+    poiService.setPoi(site)
+    console.log(site.name)
+}
         
 
     }])

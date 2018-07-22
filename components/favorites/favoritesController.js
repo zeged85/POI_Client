@@ -22,5 +22,22 @@ angular.module('citiesApp')
             console.log("saving favs to DB")
             favService.set([2,4,5])
         }
+
+        self.remove = function(t){
+            console.log('remove')
+            console.log(t.id)
+            console.log(typeof(self.pois))
+
+
+            var index = self.pois.indexOf(t.id);
+ 
+            if (index > -1) {
+                self.pois.splice(index, 1);
+            }
+
+
+
+            //self.pois.remove(t.id)
+        }
      
     }]);

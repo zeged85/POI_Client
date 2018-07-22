@@ -1,0 +1,16 @@
+#content {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 7%;
+    overflow: auto;
+    background-color: darkslategray
+}
+
+#poiTable {
+    position: absolute;
+    top: 0%;
+    width: 100%;
+
+
+}

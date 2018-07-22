@@ -7,22 +7,29 @@
                         <tr class="thead-dark">
                                 <th scope="col"></th>
 
-                                <th ng-show="login"><img src="https://image.flaticon.com/icons/svg/148/148839.svg" ng-click="poiCtrl.addToFavorits()"
-                                        style="height: 50px; width: 30px;"> {{poiCtrl.size}} </th>
-                                <th></th>
-                                <th></th>
+                                <th ng-show="login">
+                                        <img src="https://image.flaticon.com/icons/svg/148/148839.svg" ng-click="poiCtrl.addToFavorits()" style="height: 50px; width: 30px;"> {{poiCtrl.size}} </th>
+
+                                <th scope="col">category
+                                        <select type="text" ng-model="poiCtrl.selectedCategory" ng-options="x for x in poiCtrl.categories"></select>
+                                </th>
+                                
                                 <th>
                                         <h2>Points Of Interest</h2>
                                 </th>
-                                <th scope="col">category
-                                        <select type="text" ng-model="cat_filter" ng-options="x.categories for x in poiCtrl.categories"></select>
-                                </th>
-                                <th scope="col">
+                                <th><button ng-click="poiCtrl.fr()">gh</button> </th>
+                                <th></th>
+                                <th></th>
+
                                         
-                                </th>
-                                <th scope="col">
-                                        
-                                        </th>
+                                <th></th>
+
+                                
+
+
+
+
+
 
 
 
@@ -38,11 +45,11 @@
                                 <th></th>
                         </tr>
                 </thead>
-                <tbody ng-repeat="x in poiCtrl.sites | filter:{category:cat_filter.categories, rating:rating_filter}">
+                <tbody ng-repeat="x in poiCtrl.sites | filter:{category:poiCtrl.selectedCategory}"  >
 
                         <tr>
-                                <th> </th>
-                                <td class="poitable-td">
+                                <th></th>
+                                <td>
                                         <a href="#poiPage" ng-click="poiCtrl.selectedSite(x)">{{x.name }}</a>
                                 </td>
                                 <td>{{x.category}}</td>
@@ -53,8 +60,7 @@
                                 <td>
                                         <div ng-show="login">
                                                 <div ng-show="true">
-                                                        <img src="https://image.flaticon.com/icons/svg/148/148839.svg" ng-click="poiCtrl.addToFavorits(x)"
-                                                                style="height: 50px; width: 50px;">
+                                                        <img src="https://image.flaticon.com/icons/svg/148/148839.svg" ng-click="poiCtrl.addToFavorits(x)" style="height: 50px; width: 50px;">
                                                 </div>
                                                 <div ng-show="!true">
                                                         <img src="https://image.flaticon.com/icons/svg/53/53415.svg" ng-click="poiCtrl.addToFavorits()" style="height: 50px; width: 50px;">

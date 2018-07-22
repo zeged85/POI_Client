@@ -1,40 +1,43 @@
 <link rel="stylesheet" href="/style/register.css">
-    <div id="content">
-        <div id="reg" ng-controller="registerController as regCtrl">
-            <div id="head">
-                <h3>Register</h3>
-            </div>
-            <div class="border border-dark">
-                <form ng-submit="regCtrl.submit()">
-                    <input ng-model="regCtrl.username" type="text" placeholder="UserName" class="form-control">
-                    <input ng-model="regCtrl.firstName" type="text" placeholder="FirstName" class="form-control">
-                    <input ng-model="regCtrl.lastName" type="text" placeholder="LastName" class="form-control">
-                    <input ng-model="regCtrl.password" type="text" placeholder="Password" class="form-control">
-                    <input ng-model="regCtrl.email" type="text" placeholder="Email" class="form-control">
-                    <input ng-model="regCtrl.city" type="text" placeholder="City" class="form-control">
-                    <select name="Country" id="Country" class="form-control" aria-placeholder="Country" ng-model="regCtrl.selectedCountry" ng-options="item for item in regCtrl.countries">
-                        <label>choose at least two categories:</label>
-                        <br>
-                        <input type="checkbox" placeholder="Category" ng-model="regCtrl.category1"> Resturants
-                        <br>
-                        <input type="checkbox" placeholder="Category" ng-model="regCtrl.category2"> Parks
-                        <br>
-                        <input type="checkbox" placeholder="Category" ng-model="regCtrl.category3"> Academic institutions
-                        <br>
-                        <input type="checkbox" placeholder="Category" ng-model="regCtrl.category4"> Cinema
-                        <br>
-                        <label>choose at least one question:</label>
-                        <br>
-                        <input type="checkbox" placeholder="Question"> {{regCtrl.Q1}}
-                        <br>
-                        <input type="checkbox" placeholder="Question"> {{regCtrl.Q2}}
-                        <br>
-                        <br>
-                        <button type="submit" class="btn btn-secondary btn-sm">Submit</button>
-                        {{regCtrl.firstName}}
-                </form>
-
-            </div>
+<div id="content">
+    <div id="reg" ng-controller="registerController as regCtrl">
+        <div id="head">
+            <h3>Register</h3>
         </div>
+        <div class="border border-dark">
+            <form ng-submit="regCtrl.submit()">
+                <input ng-model="regCtrl.username" type="text" placeholder="UserName" class="form-control">
+                <input ng-model="regCtrl.firstName" type="text" placeholder="FirstName" class="form-control">
+                <input ng-model="regCtrl.lastName" type="text" placeholder="LastName" class="form-control">
+                <input ng-model="regCtrl.password" type="text" placeholder="Password" class="form-control">
+                <input ng-model="regCtrl.email" type="text" placeholder="Email" class="form-control">
+                <input ng-model="regCtrl.city" type="text" placeholder="City" class="form-control">
+                <select name="Country" id="Country" class="form-control" aria-placeholder="Country" ng-model="regCtrl.selectedCountry" ng-options="item for item in regCtrl.countries"></select>
 
+                    <label>choose at least two categories:</label>
+                    <br>
+                    <input type="checkbox" placeholder="Category" ng-model="regCtrl.category1"> Resturants
+                    <br>
+                    <input type="checkbox" placeholder="Category" ng-model="regCtrl.category2"> Parks
+                    <br>
+                    <input type="checkbox" placeholder="Category" ng-model="regCtrl.category3"> Academic institutions
+                    <br>
+                    <input type="checkbox" placeholder="Category" ng-model="regCtrl.category4"> Cinema
+                    <br>
+                    <label>choose authentication question:</label>
+                    <br>
+                    <form>
+                        <input type="radio" name="q" placeholder="Question" ng-model="selectedQ"> what is your pet's name?
+                        <br>
+                        <input type="radio" name="q" placeholder="Question"  ng-model="selectedQ"> what is your mother's maiden name?
+                    </form>
+                    
+                    <input type="text" class="form-control" ng-model="regCtrl.ans" placeholder="Answer" >
+                    <br>
+                    <button type="submit" class="btn btn-secondary btn-sm">Submit</button>
+            </form>
+
+        </div>
     </div>
+
+</div>

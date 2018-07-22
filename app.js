@@ -31,7 +31,7 @@ app.config(['$locationProvider', '$routeProvider', function($locationProvider, $
             templateUrl: 'components/home/home.html',
             controller : 'homeController as homCtrl'
         })
-        .when('/register', {
+        .when('/reg', {
             templateUrl: 'components/register/register.html',
             controller : 'registerController as registerController'
         })

@@ -59,11 +59,12 @@
                                 </td>
                                 <td>
                                         <div ng-show="login">
-                                                <div ng-show="true">
-                                                        <img src="https://image.flaticon.com/icons/svg/148/148839.svg" ng-click="poiCtrl.addToFavorits(x)" style="height: 50px; width: 50px;">
+                                                <div ng-show="poiCtrl.pois.indexOf(x.id) === -1">
+                                                        <img src="https://image.flaticon.com/icons/svg/148/148839.svg" ng-click="poiCtrl.addToFavorits(x)"
+                                                                style="height: 50px; width: 50px;">
                                                 </div>
-                                                <div ng-show="!true">
-                                                        <img src="https://image.flaticon.com/icons/svg/53/53415.svg" ng-click="poiCtrl.addToFavorits()" style="height: 50px; width: 50px;">
+                                                <div ng-show="poiCtrl.pois.indexOf(x.id) > -1">
+                                                        <img src="https://image.flaticon.com/icons/svg/53/53415.svg" ng-click="poiCtrl.removeFromFavorites(x)" style="height: 50px; width: 50px;">
                                                 </div>
                                         </div>
                                 </td>

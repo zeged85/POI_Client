@@ -20,7 +20,7 @@ angular.module('citiesApp')
 
         self.saveFva = function(){
             console.log("saving favs to DB")
-            favService.set([2,4,5])
+            favService.set(self.pois)
         }
 
         self.remove = function(t){

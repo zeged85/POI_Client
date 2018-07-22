@@ -85,24 +85,25 @@ angular.module('citiesApp')
             console.log("setting favs")
             myfavs = []
             console.log(favlist)
-            for (fav in favlist){
-                myfavs.push(fav)
+            for (var i=0, len = favlist.length;i<len; i+=1){
+                console.log(favlist[i])
+                myfavs.push(favlist[i])
             }
             let body = {
             poi_array : myfavs
             }
 
-            $http.post(serverUrl + "Users/log", body)
-            .then(function (response) {
+            $http.post(serverUrl + "poi/saveFavorites", body)
+            // .then(function (response) {
          
-                console.log(response.data)
+            //     console.log(response.data)
           
 
-            }, function (response) {
-                //Second function handles error
-               // self.login.content = "Something went wrong";
-               console.log(response)
-            });
+            // }, function (response) {
+            //     //Second function handles error
+            //    // self.login.content = "Something went wrong";
+            //    console.log(response)
+            // });
         };
 
 
@@ -131,7 +132,7 @@ angular.module('citiesApp')
                              count+=1
                          }
                         //myfavs = response.data
-                        console.log("got pois")
+                        console.log("got favss")
                         console.log(myfavs)
            
 

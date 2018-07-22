@@ -40,9 +40,17 @@
         <label for="NumOfVotes">Number Of Views</label>
         {{poiPageController.poi.numOfViews}}
         <br>
+        
+        <div ng-show="login">
+                <div ng-show="true">
+                        <img src="https://image.flaticon.com/icons/svg/148/148839.svg" ng-click="poiCtrl.addToFavorits(x)"
+                                style="height: 50px; width: 50px;">
+                </div>
+                <div ng-show="!true">
+                        <img src="https://image.flaticon.com/icons/svg/53/53415.svg" ng-click="poiCtrl.addToFavorits()" style="height: 50px; width: 50px;">
+                </div>
+        </div>
         <br>
-
-  
         <input type="number" ng-model="rank" class="form-control" placeholder="Add Rank">
         
         <button ng-click="submitRank()" class="btn btn-sm" >Submit</button>

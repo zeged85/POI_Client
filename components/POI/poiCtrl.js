@@ -62,11 +62,8 @@ self.addToFavorits = function(t){
 
    // self.
 }
-<<<<<<< HEAD
 self.favCounter = 5
         
-=======
->>>>>>> b2cb33b2be643c751e0dcc0dd2cd08a242a9ce88
 
     }])
 

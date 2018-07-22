@@ -10,6 +10,10 @@ angular.module('citiesApp')
         
         poiService.get()
         console.log('in favs')
+        self.selectedSite = function (site) {
+            poiService.setPoi(site)
+            console.log(site.name)
+        }
 
         $http.get(serverUrl + "poi/getFavorites")
             .then(function (response) {
@@ -41,6 +45,7 @@ angular.module('citiesApp')
                 console.log(response)
                 // return cities
             });
+           
 
     
             console.log(1234)

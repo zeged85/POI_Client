@@ -24,7 +24,8 @@
                         <tr class="thead-dark">
                                 <th scope="col"></th>
 
-                                <th></th>
+                                <th ng-show="login"><img src="https://image.flaticon.com/icons/svg/148/148839.svg" ng-click="poiCtrl.addToFavorits()"
+                                        style="height: 50px; width: 30px;"> {{poiCtrl.favCounter}} </th>
                                 <th></th>
                                 <th></th>
                                 <th>
@@ -34,8 +35,11 @@
                                         <select type="text" ng-model="cat_filter" ng-options="x.categories for x in poiCtrl.categories"></select>
                                 </th>
                                 <th scope="col">
-                                        <button ng-click="clearfilter()" class="btn">Clear filter</button>
+                                        
                                 </th>
+                                <th scope="col">
+                                        
+                                        </th>
 
 
 
@@ -64,11 +68,16 @@
                                         <img ng-style="{'height': '100px'}" ng-src="{{x.pic}} ">
                                 </td>
                                 <td>
-                                        <div ng-show="login"  >
-                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRKWyDkdpVqjjtQcdV2n4MWaJB9WNkPo0CKvFhN9vSufr5HgNl" 
-                                                ng-click="poiCtrl.addToFavorits()" style="height: 50px; width: 50px;"> </td>
-
-                                </div>
+                                        <div ng-show="login">
+                                                <div ng-show="true">
+                                                        <img src="https://image.flaticon.com/icons/svg/148/148839.svg" ng-click="poiCtrl.addToFavorits()"
+                                                                style="height: 50px; width: 50px;">
+                                                </div>
+                                                <div ng-show="!true">
+                                                        <img src="https://image.flaticon.com/icons/svg/53/53415.svg" ng-click="poiCtrl.addToFavorits()" style="height: 50px; width: 50px;">
+                                                </div>
+                                        </div>
+                                </td>
                                 <td></td>
                         </tr>
                 </tbody>

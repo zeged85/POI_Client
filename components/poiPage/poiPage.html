@@ -40,15 +40,15 @@
         <label for="NumOfVotes">Number Of Views</label>
         {{poiPageController.poi.numOfViews}}
         <br>
-        <div ng-show="login">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRKWyDkdpVqjjtQcdV2n4MWaJB9WNkPo0CKvFhN9vSufr5HgNl" ng-click="addToFavorits(poiPageController.poi)" style="height: 50px; width: 50px;">
         <br>
-        <br>
+
   
         <input type="number" ng-model="rank" class="form-control" placeholder="Add Rank">
+        
         <button ng-click="submitRank()" class="btn btn-sm" >Submit</button>
-        <br>
+        <br><br>
         <input type="text" ng-model="review" class="form-control" placeholder="Add Review">
+        
         <button ng-click="submitReview()" class="btn btn-sm" >Submit</button>
     </div>
 </div>

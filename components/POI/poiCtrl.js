@@ -1,6 +1,6 @@
 angular.module('citiesApp')
 
-    .controller('poiCtrl', ['poiService','$scope','$rootScope','favService', function (poiService,$scope,$rootScope,favService) {
+    .controller('poiCtrl', ['poiService','$scope','$rootScope','favService','localStorageModel', function (poiService,$scope,$rootScope,favService,localStorageModel) {
 
 
         self = this;
@@ -10,6 +10,7 @@ angular.module('citiesApp')
         //self.cities = poiService.pois
        // favService.getSize()
 
+        self.categories = ['Resturants', 'Parks', 'Academic institutions', 'Cinema', '123']
        /* self.sites = poiService.get().then(function(data){
             self.sites = data
         })
@@ -63,6 +64,9 @@ self.removeFromFavorites = function(t){
     if (index > -1) {
         self.pois.splice(index, 1);
     }
+
+    localStorageModel.removeLocalStorage("favs")
+    localStorageModel.addLocalStorage("favs",self.pois)
 }
 
 self.addToFavorits = function(t){
@@ -72,6 +76,10 @@ self.addToFavorits = function(t){
     self.pois.push(t.id)
 
    // self.
+
+   localStorageModel.removeLocalStorage("favs")
+   localStorageModel.addLocalStorage("favs",self.pois)
+
 }
 
         

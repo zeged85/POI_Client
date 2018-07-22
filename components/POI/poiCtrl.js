@@ -59,7 +59,8 @@ self.selectedSite = function (site) {
 self.addToFavorits = function(t){
     console.log("adding to fav")
     console.log(t)
-    favService.set([1,3,6])
+    //favService.set([1,3,6])
+    self.pois.push(t.id)
 
    // self.
 }

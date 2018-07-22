@@ -8,23 +8,26 @@
                                 <th scope="col"></th>
 
                                 <th ng-show="login">
-                                        <img src="https://image.flaticon.com/icons/svg/148/148839.svg" ng-click="poiCtrl.addToFavorits()" style="height: 50px; width: 30px;"> {{poiCtrl.size}} </th>
+                                        <img src="https://image.flaticon.com/icons/svg/148/148839.svg" ng-click="poiCtrl.addToFavorits()" style="height: 50px; width: 30px;"> {{poiCtrl.size}}
+                                </th>
 
-                                <th scope="col">category
+
+                                <th>category
                                         <select type="text" ng-model="poiCtrl.selectedCategory" ng-options="x for x in poiCtrl.categories"></select>
                                 </th>
-                                
+                                <th>
+                                        <button ng-click="poiCtrl.clearFilter()" class="btn btn-dark">Clear Filter</button>
+                                </th>
                                 <th>
                                         <h2>Points Of Interest</h2>
                                 </th>
-                                <th><button ng-click="poiCtrl.fr()">gh</button> </th>
-                                <th></th>
+<th></th>
+<th></th>
+
+
                                 <th></th>
 
-                                        
-                                <th></th>
 
-                                
 
 
 
@@ -45,7 +48,7 @@
                                 <th></th>
                         </tr>
                 </thead>
-                <tbody ng-repeat="x in poiCtrl.sites | filter:{category:poiCtrl.selectedCategory}"  >
+                <tbody ng-repeat="x in poiCtrl.sites | filter:{category:poiCtrl.selectedCategory}">
 
                         <tr>
                                 <th></th>
@@ -60,8 +63,7 @@
                                 <td>
                                         <div ng-show="login">
                                                 <div ng-show="poiCtrl.pois.indexOf(x.id) === -1">
-                                                        <img src="https://image.flaticon.com/icons/svg/148/148839.svg" ng-click="poiCtrl.addToFavorits(x)"
-                                                                style="height: 50px; width: 50px;">
+                                                        <img src="https://image.flaticon.com/icons/svg/148/148839.svg" ng-click="poiCtrl.addToFavorits(x)" style="height: 50px; width: 50px;">
                                                 </div>
                                                 <div ng-show="poiCtrl.pois.indexOf(x.id) > -1">
                                                         <img src="https://image.flaticon.com/icons/svg/53/53415.svg" ng-click="poiCtrl.removeFromFavorites(x)" style="height: 50px; width: 50px;">

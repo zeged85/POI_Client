@@ -10,7 +10,7 @@ angular.module('citiesApp')
         //self.cities = poiService.pois
        // favService.getSize()
 
-        self.categories = ['Resturants', 'Parks', 'Academic institutions', 'Cinema', 'All', '123']
+        self.categories = ['Resturants', 'Parks', 'Academic institutions', 'Cinema', '123']
        /* self.sites = poiService.get().then(function(data){
             self.sites = data
         })
@@ -49,7 +49,7 @@ self.selectedSite = function (site) {
     console.log(site.name)
    
 }
-    self.fr = function(){
+    self.clearFilter = function(){
         self.selectedCategory = ''
     }
 

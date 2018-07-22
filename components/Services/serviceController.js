@@ -14,7 +14,7 @@ angular.module('citiesApp')
 
         }
 
-        this.userName = token.userName
+        this.userName = "guest"
 
 
     }])

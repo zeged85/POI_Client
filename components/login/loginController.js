@@ -1,5 +1,5 @@
 angular.module('citiesApp')
-    .controller('loginController',['$http','setHeadersToken','$scope', function ($http,setHeadersToken,$scope) {
+    .controller('loginController',['$http','setHeadersToken','$scope','$location', function ($http,setHeadersToken,$scope,$location) {
         self = this;
         
         self.username = "dfgdfg";
@@ -19,8 +19,9 @@ angular.module('citiesApp')
                 //self.login.content = response.data.token;
                 //setHeadersToken.set(self.login.content)
                 setHeadersToken.set(response.data)
-                $scope.indxCtrl.username = self.username
+                $scope.indxCtrl.userName = self.username
                 console.log(response.data)
+               $location.path('/home')
 
             }, function (response) {
                 //Second function handles error

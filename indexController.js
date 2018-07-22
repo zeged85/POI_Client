@@ -30,6 +30,7 @@ angular.module('citiesApp')
         self.logOut = function(){
             localStorageModel.removeLocalStorage("username")
             localStorageModel.removeLocalStorage("token")
+            localStorageModel.removeLocalStorage("favs")
             $rootScope.login = false
 
             

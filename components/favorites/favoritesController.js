@@ -1,5 +1,5 @@
 angular.module('citiesApp')
-    .controller('favoritesController', ['$http','poiService','favService', function ($http,poiService,favService) {
+    .controller('favoritesController', ['$http','poiService','favService','localStorageModel', function ($http,poiService,favService,localStorageModel) {
 
         self = this
 
@@ -35,7 +35,8 @@ angular.module('citiesApp')
                 self.pois.splice(index, 1);
             }
 
-
+            localStorageModel.removeLocalStorage("favs")
+            localStorageModel.addLocalStorage("favs",self.pois)
 
             //self.pois.remove(t.id)
         }

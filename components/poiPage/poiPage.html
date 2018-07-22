@@ -10,12 +10,12 @@
     #poi {
         position: absolute;
         left: 10%;
-        top: 25%;
+        top: 15%;
         text-align: left;
     }
     #image{
         position: absolute;
-        top: 18%;
+        top: 15%;
         left:35%;
     }
 </style>
@@ -43,8 +43,11 @@
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRKWyDkdpVqjjtQcdV2n4MWaJB9WNkPo0CKvFhN9vSufr5HgNl" ng-click="addToFavorits(poiPageController.poi)" style="height: 50px; width: 50px;">
         <br>
         <br>
-        <label for="rank">Add Rank</label>
-        <input type="number" class="form-control">
+        <input type="number" ng-model="rank" class="form-control" placeholder="Add Rank">
+        <button ng-click="submitRank()" class="btn btn-sm" >Submit</button>
+        <br>
+        <input type="text" ng-model="review" class="form-control" placeholder="Add Review">
+        <button ng-click="submitReview()" class="btn btn-sm" >Submit</button>
     </div>
     <img id="image" ng-style="{'height': '400px'}" ng-src="{{poiPageController.poi.pic}} ">
 </div>

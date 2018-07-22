@@ -19,6 +19,9 @@ angular.module('citiesApp')
         }
 
 
-        
+        self.saveFva = function(){
+            console.log("saving favs to DB")
+            favService.set([2,4,5])
+        }
      
     }]);

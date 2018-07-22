@@ -1,5 +1,5 @@
 angular.module('citiesApp')
-    .controller('indexController',['setHeadersToken','localStorageModel','$location','$rootScope','$scope', function (setHeadersToken,localStorageModel,$location,$rootScope,$scope) {
+    .controller('indexController',['setHeadersToken','localStorageModel','$location','$rootScope','$scope','favService', function (setHeadersToken,localStorageModel,$location,$rootScope,$scope,favService) {
 
 
 
@@ -30,7 +30,8 @@ angular.module('citiesApp')
         self.logOut = function(){
             localStorageModel.removeLocalStorage("username")
             localStorageModel.removeLocalStorage("token")
-            localStorageModel.removeLocalStorage("favs")
+            //localStorageModel.removeLocalStorage("favs")
+            favService.reset()
             $rootScope.login = false
 
             

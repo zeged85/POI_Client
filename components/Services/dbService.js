@@ -115,6 +115,12 @@ angular.module('citiesApp')
 
 
         
+        self.reset = function(){
+            fresh=false;
+            myfavs=[]
+            //self.pois = []
+            localStorageModel.removeLocalStorage("favs")
+        }
 
         self.get = function () {
             console.log("getting favs")
@@ -143,6 +149,8 @@ angular.module('citiesApp')
                              count+=1
                          }
                         //myfavs = response.data
+                        localStorageModel.removeLocalStorage("favs")
+                        localStorageModel.addLocalStorage("favs",myfavs)
                         console.log("got favss")
                         console.log(myfavs)
            

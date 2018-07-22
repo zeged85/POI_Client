@@ -22,11 +22,11 @@
         <br>
         
         <div ng-show="login">
-                <div ng-show="true">
+                <div ng-show="poiPageController.pois.indexOf(poiPageController.poi.id) === -1">
                         <img src="https://image.flaticon.com/icons/svg/148/148839.svg" ng-click="poiCtrl.addToFavorits(x)"
                                 style="height: 50px; width: 50px;">
                 </div>
-                <div ng-show="!true">
+                <div ng-show="poiPageController.pois.indexOf(poiPageController.poi.id) > -1">
                         <img src="https://image.flaticon.com/icons/svg/53/53415.svg" ng-click="poiCtrl.addToFavorits()" style="height: 50px; width: 50px;">
                 </div>
         </div>

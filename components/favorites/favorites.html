@@ -1,6 +1,6 @@
 
 
-<style>
+<!-- <style>
     #content {
         position: fixed;
         background-image: url('https://i.ytimg.com/vi/_lQHg7NjZSI/maxresdefault.jpg');
@@ -20,7 +20,7 @@
         top: 18%;
         left:35%;
     }
-</style>
+</style> -->
 
 
 <div>
@@ -37,9 +37,9 @@
 </div>
 
 <div  ng-controller="favoritesController as favCtrl" id="content">
-    <div ng-repeat="fav in favCtrl.pois" id="poi">
+    <div ng-repeat="fav in favCtrl.sites" id="poi" ng-if="favCtrl.pois.indexOf(fav.id) > -1">
         <label for="name"> Site name:</label>
-        {{fav.id}}
+        {{fav.name}}
         <br>
         <label for="description">Description:</label>
         {{fav.description}}

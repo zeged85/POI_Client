@@ -1,24 +1,66 @@
-<h1 id = "e"> helloooooo</h1>
 
-<link rel="stylesheet/less" type="text/css" href="favorites.less" />
 
 <style>
-    #e{
+    #content {
+        position: fixed;
+        background-image: url('https://i.ytimg.com/vi/_lQHg7NjZSI/maxresdefault.jpg');
+        top: 7.5%;
+        height: 92.5%;
+        width: 100%;
+    }
+
+    #poi {
         position: absolute;
-        left: 40%;
+        left: 10%;
+        top: 25%;
+        text-align: left;
+    }
+    #image{
+        position: absolute;
+        top: 18%;
+        left:35%;
     }
 </style>
 
 
-<div ng-controller="favoritesController as favCtrl">
+<div>
 
-    <div ng-model="favCtrl.favs" ng-repeat="(id , site) in favCtrl.favs">
+    <div >
            
-            Site name:
-            <a href="#poiPage" target="_blank" ng-click="poiCtrl.selectedSite(id)"  value="{{site.name}}_{{id}}" ng-model="poiCtrl.selected" >{{site.name}} {{poiCtrl.id}} </a>
+        <label for="name">Site name:</label>
+        {{fav.name}}
+
+            
             <br>
-            <img ng-style="{'height': '100px'}" ng-src="{{site.pic}} ">
-            <br>
-           <button>Add to Favoriets</button>
+
     </div>
+</div>
+
+<div  ng-controller="favoritesController as favCtrl" id="content">
+    <div ng-repeat="fav in favCtrl.pois" id="poi">
+        <label for="name"> Site name:</label>
+        {{fav.id}}
+        <br>
+        <label for="description">Description:</label>
+        {{fav.description}}
+        <br>
+        <label for="adress">Adress:</label>
+        {{fav.adress}}
+        <br>
+        <label for="category">Category:</label>
+        {{fav.category}}
+        <br>
+        <label for="Score">Score:</label>
+        {{fav.score}}
+        <br>
+        <label for="NumOfVotes">Number Of Views</label>
+        {{fav.numOfViews}}
+        <br>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRKWyDkdpVqjjtQcdV2n4MWaJB9WNkPo0CKvFhN9vSufr5HgNl" ng-click="addToFavorits(poiPageController.poi)" style="height: 50px; width: 50px;">
+        <br>
+        <br>
+        <label for="rank">Add Rank</label>
+        <input type="number" class="form-control">
+    </div>
+    <img id="image" ng-style="{'height': '400px'}" ng-src="{{poiPageController.poi.pic}} ">
 </div>

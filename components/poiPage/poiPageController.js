@@ -8,6 +8,6 @@ angular.module('citiesApp')
         self.poi = {}
         //self.poi = poiService.getPoi()
 
-        poiService.getPoi()
+        self.poi = poiService.getPoi()
 
     }]) 

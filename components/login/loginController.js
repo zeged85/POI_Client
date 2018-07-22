@@ -19,7 +19,7 @@ angular.module('citiesApp')
                 //self.login.content = response.data.token;
                 //setHeadersToken.set(self.login.content)
                 setHeadersToken.set(response.data)
-                $scope.indxCtrl.username = self.username
+                $scope.indxCtrl.userName = self.username
                 console.log(response.data)
 
             }, function (response) {

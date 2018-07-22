@@ -19,6 +19,7 @@ angular.module('citiesApp')
             //setHeadersToken.set(self.login.content)
            // setHeadersToken.set(response.data)
            // $scope.indxCtrl.username = self.username
+           console.log(response.data)
            self.Q1 = response.data.questions[0]
            self.Q2 = response.data.questions[1]
            
@@ -37,8 +38,8 @@ angular.module('citiesApp')
             self.country = self.selectedCountry
             let user = {
                 username : self.username,
-                firstName : self.firstName,
-                lastName : self.lastName,
+                firstname : self.firstName,
+                lastname : self.lastName,
                 password : self.password,
                 email : self.email,
                 country : self.country,

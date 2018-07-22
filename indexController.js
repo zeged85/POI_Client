@@ -11,12 +11,15 @@ angular.module('citiesApp')
 
         var username = localStorageModel.getLocalStorage("username")
         if (username){
+            console.log(username)
             self.userName = username
            // self.guest=false
         }
 
         var token = localStorageModel.getLocalStorage("token")
         if (token){
+            console.log(token)
+            if (username){
             self.token = token
             setHeadersToken.set(token)
             self.guest = false
@@ -24,6 +27,10 @@ angular.module('citiesApp')
             //self.login = true
             $rootScope.login = true
             $location.path('/home')
+            }
+            else{
+                localStorageModel.removeLocalStorage("token")
+            }
         }
 
 

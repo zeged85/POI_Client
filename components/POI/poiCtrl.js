@@ -54,11 +54,19 @@ self.selectedSite = function (site) {
 
 
 
-
+self.removeFromFavorites = function(t){
+    console.log("removing fav")
+    console.log(t.id)
+    var index = self.pois.indexOf(t.id);
+ 
+    if (index > -1) {
+        self.pois.splice(index, 1);
+    }
+}
 
 self.addToFavorits = function(t){
     console.log("adding to fav")
-    console.log(t)
+    console.log(t.id)
     //favService.set([1,3,6])
     self.pois.push(t.id)
 

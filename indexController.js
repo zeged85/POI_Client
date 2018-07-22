@@ -4,6 +4,8 @@ angular.module('citiesApp')
 
         self = this;
 
-        self.userName = setHeadersToken.userName
+        self.userName = "guest"
+
+        self.guest = true
 
     }]);

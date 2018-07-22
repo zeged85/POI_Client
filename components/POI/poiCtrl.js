@@ -1,5 +1,5 @@
 angular.module('citiesApp')
-    .controller('poiCtrl', ['poiService', function (poiService) {
+    .controller('poiCtrl', ['poiService','favService', function (poiService,favService) {
 
 
         self = this;
@@ -25,6 +25,9 @@ angular.module('citiesApp')
         poiService.get()
 
 
+       // self.pois = [] //favs
+       // favService.get()
+
        //self.sites = poiService.allsites
         
         //console.log(self.sites)
@@ -42,8 +45,17 @@ angular.module('citiesApp')
 self.selectedSite = function (site) {
     poiService.setPoi(site)
     console.log(site.name)
+   
 }
-        
+    
 
     }])
 
+
+    self.addToFavorits = function(t){
+        console.log("adding to fav")
+        console.log(t)
+
+
+       // self.
+    }

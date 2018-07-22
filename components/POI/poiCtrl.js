@@ -14,7 +14,7 @@ angular.module('citiesApp')
             self.sites = data
         })
 
-
+        
        self.sites = poiService.allsites
         */
         //console.log(self.sites)
@@ -25,7 +25,7 @@ angular.module('citiesApp')
 
         poiService.get()
 
-
+        self.categories = ['Resturants', 'Parks', 'Academic institutions', 'Cinema', '123']
         self.pois = [] //favs
         favService.get()
         self.size = self.pois.length
@@ -73,7 +73,7 @@ self.addToFavorits = function(t){
 
    // self.
 }
-self.favCounter = 5
+
         
 
     }])

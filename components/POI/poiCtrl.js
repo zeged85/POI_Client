@@ -22,6 +22,8 @@ angular.module('citiesApp')
 
       //  self.allsites=poiService.allsites
 
+      favService.getCategories()
+
         self.sites = []
 
         poiService.get()

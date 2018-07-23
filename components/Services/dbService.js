@@ -113,7 +113,21 @@ angular.module('citiesApp')
         // }
         
 
+        self.getCategories = function(){
+            console.log('getting cats')
+            $http.get(serverUrl + "users/getCategories")
+            .then(function (response) {
+                    console.log('gotten cats')
+                    console.log(response)
+                }, function (response) {
+                     
+                    console.log("didnt get cats")
+                    console.log(response)
+                    // return cities
+                });
 
+
+        }
         
         self.reset = function(){
             fresh=false;

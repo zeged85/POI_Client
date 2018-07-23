@@ -11,13 +11,16 @@
     top: 5%;
     left: 38%;
 }
-
+a{
+    color: black
+}
 #poi {
     position: relative;
     left: 10%;
     top: 15%;
     width: 70%;
     text-align: left;
+
 }
 #image{
     position: absolute;

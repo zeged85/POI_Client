@@ -1,11 +1,12 @@
 #content {
-    position: absolute;
+    position: fixed;
     top: 7%;
     width: 100%;
     height: 93%;
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c6/Be%27er_Sheva_at_night.jpg');
+    background-color: cornflowerblue;
     background-repeat: no-repeat;
     color: black;
+    overflow: auto;
 }
 
 #recomended {
@@ -30,20 +31,30 @@
     top: 60%;
     height: 40%;
     width: 100%;
+    float: left;
+    display: flex;
 }
 
 #visited_head {
     text-align: center;
 }
 
-#visited_poi1 {
-    position: absolute;
+.visited_poi1 {
+    margin-left: 20%;
     top: 5%;
     left: 10%;
 }
 
+a{
+    color: black
+}
 #visited_poi2 {
     position: absolute;
     top: 5%;
     left: 80%;
+}
+#noPoi{
+    position: absolute;
+    top: 70%;
+    left: 38%;
 }

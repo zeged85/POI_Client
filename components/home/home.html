@@ -1,36 +1,33 @@
 <link rel="stylesheet" href="/style/home.css">
 
-    <div id="content" ng-controller="homeController as homCtrl">
-        <div id="recomended" class="border">
-            <div id="category1">
-                category1:
-                <br> poi1
-                <br> poi2
-            </div>
-            <div id="category2">
-                category2:
-                <br> poi1
-                <br> poi2
-            </div>
+<div id="content" ng-controller="homeController as homCtrl">
+    <div id="recomended" class="border">
+        <div id="category1">
+            category1:
+            <br> poi1
+            <br> poi2
         </div>
-        <div id="visited" class="border">
-            <div id="visited_head">
-                last saved:
-            </div>
-            <br>
-            <div id="visited_poi1">
-                name
-                <br> details
-            </div>
-
-            <div id="visited_poi2">
-                name
-                <br> details
-            </div>
+        <div id="category2">
+            category2:
+            <br> poi1
+            <br> poi2
         </div>
     </div>
+    <div id="visited" class="border" ng-if="homCtrl.favExsist">
+        <div id="visited_head">
+            last saved:
+        </div>
+        <br>
+
+        <div class="visited_poi1" ng-repeat="fav in homCtrl.poiArray">
+            <a href="#poiPage" ng-click="homCtrl.selectedSite(fav)">{{fav.name}}</a>
+            <br>
+            <img ng-style="{'height': '100px'}" ng-src="{{fav.pic}}">
+        </div>
 
 
-
-
-
+    </div>
+    <div id = "noPoi" ng-if="!homCtrl.favExsist">
+        <h3>no POIs to present</h3>
+    </div>
+</div>

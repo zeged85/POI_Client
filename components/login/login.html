@@ -20,22 +20,26 @@
 
                 <div id="go_to_register" ng-show="!login">
                     <a type="link" href="#/reg"> not registered yet?</a>
+                    <br>
+                    <a type="link" href="" ng-click="logCtrl.forgot()"> forgot your password?</a>
 
                 </div>
 
             </div>
-            <div id="pass-recovery" ng-show="!login">
-                <a type="link" href="#/" ng-click="loginController.recover = true"> forgot your password?</a>
-                <div ng-if="loginController.recover == true">
-                    Q1
-                    <br>
-                    <input type="text" placeholder="your answer">
-                </div>
+           
+        </div>
+        <div id="pass-recovery">
+            <div ng-if="logCtrl.recover == true">
+                Q1
+                <br>
+                <input type="text" class="form-control" ng-model="logCtrl.ans" placeholder="your answer">
+                <br>
+                <button class="btn btn-secondary" ng-click="logCtrl.submitAns()">Submit</button>
             </div>
         </div>
     </div>
     
-    <!-- <div id="footer" class="border">
+    <div id="footer" class="border">
         <div id="poi1">
             poi1.name
             <br> poi1.details
@@ -48,5 +52,5 @@
             poi3.name
             <br> poi3.details
         </div>
-    </div> -->
+    </div>
 </div>

@@ -6,11 +6,16 @@
     width: 100%;
     overflow: auto;
 }
+#head{
+    position: absolute;
+    top: 5%;
+    left: 38%;
+}
 
 #poi {
     position: relative;
     left: 10%;
-    top: 10%;
+    top: 15%;
     width: 70%;
     text-align: left;
 }
@@ -26,4 +31,8 @@
 }
 #removeButton{
     width: 20%;
+}
+#moveButtons{
+    position: absolute;
+    left: 25%;
 }

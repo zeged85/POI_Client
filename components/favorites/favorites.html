@@ -1,14 +1,21 @@
 <link rel="stylesheet" href="/style/favorites.css">
 
-<div  ng-controller="favoritesController as favCtrl" id="content">
+<div ng-controller="favoritesController as favCtrl" id="content">
     <div id="saveButton">
-        <button class="btn btn-dark" ng-click="favCtrl.saveFva()" >Save</button>
+        <button class="btn btn-dark" ng-click="favCtrl.saveFva()">Save</button>
     </div>
+    <h2 id = "head">Orgenize your trip</h2>
     <div ng-repeat="fav in favCtrl.sites" id="poi" ng-if="favCtrl.pois.indexOf(fav.id) > -1">
+
+        
+        <div id = "moveButtons">
+            <button class="btn btn-success" ng-click="favCtrl.moveUp(fav)">Up</button>
+            <button class="btn btn-info" ng-click="favCtrl.moveDown(fav)">Down</button>
+        </div>
         <label for="name"> Site name:</label>
         <a href="#poiPage" ng-click="favCtrl.selectedSite(fav)">{{fav.name}}</a>
         <br>
-        <button id="removeButton" ng-click="favCtrl.remove(fav)" class="form-control">Remove from favorits</button>
+        <img src="https://image.flaticon.com/icons/svg/148/148839.svg" id="removeButton" style="height: 60px; width: 60px;" ng-click="favCtrl.remove(fav)" >
         <br>
         <br>
     </div>

@@ -2,9 +2,12 @@ angular.module('citiesApp')
     .controller('loginController', ['$http', 'setHeadersToken', '$scope', '$location', '$rootScope', 'localStorageModel', function ($http, setHeadersToken, $scope, $location, $rootScope, localStorageModel) {
         self = this;
 
-        self.username = "dfgdfg";
-        self.password = "";
+        let serverUrl = 'http://localhost:4000/'
 
+        self.username = "username";
+        self.password = "password";
+
+        self.question = "question"
 
         self.submit = function () {
             let user = {
@@ -12,7 +15,7 @@ angular.module('citiesApp')
                 password: self.password
             }
             console.log('User clicked submit with ', user);
-            let serverUrl = 'http://localhost:4000/'
+            
             $http.post(serverUrl + "Users/log", user)
                 .then(function (response) {
                     //First function handles success
@@ -39,12 +42,56 @@ angular.module('citiesApp')
                     console.log(response)
                 });
         };
+
+
+        self.submitAns = function(ans,user){
+            let pack = {
+                username: user,
+                answer: ans
+            }
+            console.log('User clicked submit with ', pack);
+            $http.post(serverUrl + "Users/retrievePassword",pack)
+            .then(function (response) {
+                self.question = response.data
+
+            }, function (response) {
+                self.question = response.data
+                
+                console.log("user not found")
+                // return cities
+            });
+
+
+        } 
+
         self.recover = false
-        self.forgot = function () {
+        self.forgot = function (t) {
             if (self.recover === true)
                 self.recover = false
-            else if (self.recover === false)
+            else if (self.recover === false){
                 self.recover = true
+               // self.question = "quest"
+
+                console.log(t)
+                let query = "?username=" + t;
+
+                $http.get(serverUrl + "Users/retrievePassword" + query )
+                .then(function (response) {
+                    self.question = response.data
+
+                }, function (response) {
+                    self.question = response.data
+                    
+                    console.log("user not found")
+                    // return cities
+                });
+
+
+
+
+            }
+
+
         }
 
     }]);

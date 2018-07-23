@@ -42,7 +42,7 @@ angular.module('citiesApp')
         }
         self.favArray
 
-        self.moveUp = function (fav) {
+        self.moveDown = function (fav) {
            
             indexInFav = self.pois.indexOf(fav.id)
             if(indexInFav>0){
@@ -65,7 +65,7 @@ angular.module('citiesApp')
         }
         }
 
-        self.moveDown = function (fav) {
+        self.moveUp = function (fav) {
             indexInFav = self.pois.indexOf(fav.id)
             if(indexInFav<self.sites.length-1){
             id1 = fav.id

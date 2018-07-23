@@ -30,6 +30,7 @@ angular.module('citiesApp')
             }
             else{
                 localStorageModel.removeLocalStorage("token")
+                localStorageModel.removeLocalStorage("favs")
             }
         }
 

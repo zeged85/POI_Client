@@ -1,21 +1,33 @@
-
-
 <link rel="stylesheet" href="/style/login.css">
 
+
 <div id="content" ng-controller="loginController as logCtrl" class="border">
-    <div id ="upper" >
+    <div id="upper">
         <div id="log">
             <div id="head">
                 <h3>Login</h3>
             </div>
             <div class="border">
                 <form ng-submit="logCtrl.submit()" name="myForm">
-                    
-                <input type="text" placeholder="Username" class="form-control" ng-model="logCtrl.username" ng-init=" logCtrl.username = 'barnie'" required ng-minlength="4">
-                <br>
-                <input type="text" placeholder="password" class="form-control" ng-model="logCtrl.password" ng-init="logCtrl.password = '1234'" required>
-                <br>
-                <button type ="submit", value ="submit" class="btn btn-secondary btn-sm" ng-disabled="myForm.$invalid">Submit</button>
+
+                    <input type="text" placeholder="Username" class="form-control" ng-model="logCtrl.username" ng-init=" logCtrl.username = 'barnie'"
+                        required ng-minlength="4">
+                    <br>
+                    <div ng-show="logCtrl.recover==false">
+                        <input  type="text" placeholder="password" class="form-control" ng-model="logCtrl.password"
+                            ng-init="logCtrl.password = '1234'" required>
+                        <br>
+                        <button type="submit" value="submit" class="btn btn-secondary btn-sm" ng-disabled="myForm.$invalid">Submit</button>
+                    </div>
+                    <div ng-if="logCtrl.recover == true">
+                        <button class="btn btn-secondary" ng-click="logCtrl.getPassword">get authentication question</button>
+                        <br>
+                        Q1
+                        <br>
+                        <input type="text" class="form-control" ng-model="logCtrl.ans" placeholder="your answer">
+                        <br>
+                        <button class="btn btn-secondary" ng-click="logCtrl.submitAns()">Submit</button>
+                    </div>
                 </form>
 
                 <div id="go_to_register" ng-show="!login">
@@ -26,19 +38,10 @@
                 </div>
 
             </div>
-           
-        </div>
-        <div id="pass-recovery">
-            <div ng-if="logCtrl.recover == true">
-                Q1
-                <br>
-                <input type="text" class="form-control" ng-model="logCtrl.ans" placeholder="your answer">
-                <br>
-                <button class="btn btn-secondary" ng-click="logCtrl.submitAns()">Submit</button>
-            </div>
+
         </div>
     </div>
-    
+
     <div id="footer" class="border">
         <div id="poi1">
             poi1.name

@@ -34,8 +34,18 @@ angular.module('citiesApp')
         });
 
         self.submit = function () {
-            console.log("selected:" + self.selectedCountry)
+            console.log("selected country:" + self.selectedCountry)
+            console.log(self.selectedQ)
             self.country = self.selectedCountry
+            let answer1 = ""
+            let answer2 = ""
+            console.log(self.ans)
+            if (self.selectedQ===1){
+                answer1 = self.ans
+            }
+            else{
+                answer2 = self.ans
+            }
             let user = {
                 username : self.username,
                 firstname : self.firstName,
@@ -47,8 +57,8 @@ angular.module('citiesApp')
                 category2 : self.category2,
                 category3 : self.category3,
                 category4 : self.category4,
-                answer1 : self.answer1,
-                answer2 : self.answer2
+                answer1 : answer1,
+                answer2 : answer2
                 
             }
 

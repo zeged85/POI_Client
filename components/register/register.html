@@ -27,9 +27,9 @@
                     <label>choose authentication question:</label>
                     <br>
                     <form>
-                        <input type="radio" name="q" placeholder="Question" ng-model="selectedQ"> what is your pet's name?
+                        <input type="radio" name="q" placeholder="Question" ng-model="regCtrl.selectedQ" ng-value="1"> what is your pet's name?
                         <br>
-                        <input type="radio" name="q" placeholder="Question"  ng-model="selectedQ"> what is your mother's maiden name?
+                        <input type="radio" name="q" placeholder="Question"  ng-model="regCtrl.selectedQ" ng-value="2"> what is your mother's maiden name?
                     </form>
                     
                     <input type="text" class="form-control" ng-model="regCtrl.ans" placeholder="Answer" >

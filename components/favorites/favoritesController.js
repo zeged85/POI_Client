@@ -63,6 +63,8 @@ angular.module('citiesApp')
             self.pois.splice(indexInFav,0,temp[0])
             //self.sites.splice(index1, 0, temp[0])
         }
+        localStorageModel.removeLocalStorage("favs")
+        localStorageModel.addLocalStorage("favs", self.pois)
         }
 
         self.moveUp = function (fav) {
@@ -84,6 +86,8 @@ angular.module('citiesApp')
             temp = self.pois.splice(indexInFav+1,1)
             self.pois.splice(indexInFav,0,temp[0])
         }
+        localStorageModel.removeLocalStorage("favs")
+        localStorageModel.addLocalStorage("favs", self.pois)
         }
 
     }]);

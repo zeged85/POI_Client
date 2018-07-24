@@ -22,6 +22,9 @@ angular.module('citiesApp')
 
       //  self.allsites=poiService.allsites
 
+      self.pois = [] //favs
+      favService.get()
+
       favService.getCategories()
 
         self.sites = []
@@ -29,8 +32,7 @@ angular.module('citiesApp')
         poiService.get()
 
         self.categories = ['Resturants', 'Parks', 'Academic institutions', 'Cinema', '123']
-        self.pois = [] //favs
-        favService.get()
+   
         self.size = self.pois.length
        //self.sites = poiService.allsites
         

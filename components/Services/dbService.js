@@ -138,6 +138,8 @@ angular.module('citiesApp')
 
         self.get = function () {
             console.log("getting favs")
+            console.log("before")
+            console.log(myfavs)
             var favs = localStorageModel.getLocalStorage("favs")
             if (favs){
                 myfavs = favs
@@ -151,6 +153,7 @@ angular.module('citiesApp')
                 $http.get(serverUrl + "poi/getFavorites")
                 .then(function (response) {
                         console.log('fgds')
+                        console.log(response.data)
                         var count = 0
                         myfavs = []
                         while (count < response.data.length){
@@ -179,6 +182,8 @@ angular.module('citiesApp')
                 self.pois = myfavs
             }
         }
+        console.log("after")
+        console.log(myfavs)
         }
 
 

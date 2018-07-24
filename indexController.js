@@ -1,8 +1,8 @@
 angular.module('citiesApp')
-    .controller('indexController',['setHeadersToken','localStorageModel','$location','$rootScope','$scope','favService', function (setHeadersToken,localStorageModel,$location,$rootScope,$scope,favService) {
+    .controller('indexController',['setHeadersToken','localStorageModel','$location','$rootScope','$scope','favService','poiService', function (setHeadersToken,localStorageModel,$location,$rootScope,$scope,favService,poiService) {
 
-
-
+        self.sites = []
+        poiService.get()
         self = this;
 
         self.userName = "guest"

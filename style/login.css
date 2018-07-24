@@ -54,13 +54,13 @@ a{
     top: 66.3%;
     left: 0;
     width: 100%;
-     background-color: black;
+     /* background-color: black; */
+     display: flex;
+     float: left;
 }
 
-#poi1 {
-    position: absolute;
-    top: 5%;
-    left: 5%;
+#poi {
+margin-left: 7%;
 }
 
 #poi2 {

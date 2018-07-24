@@ -1,16 +1,21 @@
 angular.module('citiesApp')
-    .controller('loginController', ['$http', 'setHeadersToken', '$scope', '$location', '$rootScope', 'localStorageModel', function ($http, setHeadersToken, $scope, $location, $rootScope, localStorageModel) {
+    .controller('loginController', ['poiService','$http', 'setHeadersToken', '$scope', '$location', '$rootScope', 'localStorageModel', function (poiService, $http, setHeadersToken, $scope, $location, $rootScope, localStorageModel) {
         self = this;
 
         let serverUrl = 'http://localhost:4000/'
         self.sites = []
+        poiService.get()
         self.username = "username";
         self.password = "password";
 
         self.question = "question"
 
-
-        poiService.get()
+        self.selectedSite = function (site) {
+            poiService.setPoi(site)
+            console.log(site.name)
+           
+        }
+        
 
         self.submit = function () {
             let user = {
@@ -96,28 +101,28 @@ angular.module('citiesApp')
 
 
         }
-
-        random1 = Math.random().random.length - 1
-        random2 = Math.random().random.length - 1
-        random3 = Math.random().random.length - 1
-        while (random1 == random2 || random2 == random3 || random1 == random3) {
-            random1 = floor(Math.random()).random.length - 1
-            random2 = floor(Math.random()).random.length - 1
-            random3 = floor(Math.random()).random.length - 1
-        }
         self.randomArray = []
+        random1 = Math.floor(Math.random()*self.sites.length - 1)
+        random2 =  Math.floor(Math.random()*self.sites.length - 1)
+        random3 =  Math.floor(Math.random()*self.sites.length - 1)
+        while (random1 == random2 || random2 == random3 || random1 == random3) {
+            random1 =1 //Math.floor(Math.random()*1)
+            random2 = 2//Math.floor(Math.random()*2)
+            random3 =3 //Math.floor(Math.random()*3)
+        }
+
         for (i = 0; i < self.sites.length; i++) {
-            if (self.sites[i].score > 2) {
+           // if (self.sites[i].score > 2) {
                 if (i == random1) {
-                    self.randomArray.push(sites[i])
+                    self.randomArray.push(self.sites[i])
                 }
-                if (i == random2) {
-                    self.randomArray.push(sites[i])
+                else if (i == random2) {
+                    self.randomArray.push(self.sites[i])
                 }
-                if (i == random3) {
-                    self.randomArray.push(sites[i])
+                else if (i == random3) {
+                    self.randomArray.push(self.sites[i])
                 }
-            }
+           // }
         }
 
 

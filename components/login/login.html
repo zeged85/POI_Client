@@ -54,17 +54,11 @@
     </div>
 
     <div id="footer" class="border">
-        <div id="poi1">
-            poi1.name
-            <br> poi1.details
-        </div>
-        <div id="poi2">
-            poi2.name
-            <br> poi2.details
-        </div>
-        <div id="poi3">
-            poi3.name
-            <br> poi3.details
+        <div id="poi" ng-repeat="poi in logCtrl.randomArray" >
+                <a href="#poiPage" ng-click="logCtrl.selectedSite(poi)">{{poi.name }}</a>
+
+        <img ng-style="{'height': '100px'}" ng-src="{{poi.pic}} ">
+
         </div>
     </div>
 </div>

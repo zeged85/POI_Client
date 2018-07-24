@@ -3,11 +3,14 @@ angular.module('citiesApp')
         self = this;
 
         let serverUrl = 'http://localhost:4000/'
-
+        self.sites = []
         self.username = "username";
         self.password = "password";
 
         self.question = "question"
+
+
+        poiService.get()
 
         self.submit = function () {
             let user = {
@@ -15,7 +18,7 @@ angular.module('citiesApp')
                 password: self.password
             }
             console.log('User clicked submit with ', user);
-            
+
             $http.post(serverUrl + "Users/log", user)
                 .then(function (response) {
                     //First function handles success
@@ -44,47 +47,47 @@ angular.module('citiesApp')
         };
 
 
-        self.submitAns = function(ans,user){
+        self.submitAns = function (ans, user) {
             let pack = {
                 username: user,
                 answer: ans
             }
             console.log('User clicked submit with ', pack);
-            $http.post(serverUrl + "Users/retrievePassword",pack)
-            .then(function (response) {
-                self.question = response.data
-
-            }, function (response) {
-                self.question = response.data
-                
-                console.log("user not found")
-                // return cities
-            });
-
-
-        } 
-
-        self.recover = false
-        self.forgot = function (t) {
-            if (self.recover === true)
-                self.recover = false
-            else if (self.recover === false){
-                self.recover = true
-               // self.question = "quest"
-
-                console.log(t)
-                let query = "?username=" + t;
-
-                $http.get(serverUrl + "Users/retrievePassword" + query )
+            $http.post(serverUrl + "Users/retrievePassword", pack)
                 .then(function (response) {
                     self.question = response.data
 
                 }, function (response) {
                     self.question = response.data
-                    
+
                     console.log("user not found")
                     // return cities
                 });
+
+
+        }
+
+        self.recover = false
+        self.forgot = function (t) {
+            if (self.recover === true)
+                self.recover = false
+            else if (self.recover === false) {
+                self.recover = true
+                // self.question = "quest"
+
+                console.log(t)
+                let query = "?username=" + t;
+
+                $http.get(serverUrl + "Users/retrievePassword" + query)
+                    .then(function (response) {
+                        self.question = response.data
+
+                    }, function (response) {
+                        self.question = response.data
+
+                        console.log("user not found")
+                        // return cities
+                    });
 
 
 
@@ -93,5 +96,30 @@ angular.module('citiesApp')
 
 
         }
+
+        random1 = Math.random().random.length - 1
+        random2 = Math.random().random.length - 1
+        random3 = Math.random().random.length - 1
+        while (random1 == random2 || random2 == random3 || random1 == random3) {
+            random1 = floor(Math.random()).random.length - 1
+            random2 = floor(Math.random()).random.length - 1
+            random3 = floor(Math.random()).random.length - 1
+        }
+        self.randomArray = []
+        for (i = 0; i < self.sites.length; i++) {
+            if (self.sites[i].score > 2) {
+                if (i == random1) {
+                    self.randomArray.push(sites[i])
+                }
+                if (i == random2) {
+                    self.randomArray.push(sites[i])
+                }
+                if (i == random3) {
+                    self.randomArray.push(sites[i])
+                }
+            }
+        }
+
+
 
     }]);

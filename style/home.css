@@ -43,6 +43,8 @@
     margin-left: 20%;
     top: 5%;
     left: 10%;
+
+    
 }
 
 a{
@@ -57,4 +59,9 @@ a{
     position: absolute;
     top: 70%;
     left: 38%;
+}
+
+#poi{
+    display: flex;
+    float: left;
 }

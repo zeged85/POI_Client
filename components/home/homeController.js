@@ -18,31 +18,7 @@ angular.module('citiesApp')
 
         length = self.pois.length
 
-        if(self.pois.length <= 0)
-            self.favExsist = false
-            else
-            self.favExsist = true
-
-       self. id1 = self.pois[length-1]
-      self.  id2 = self.pois[length-2]
-        
-            for (i = 0; i < self.sites.length; i++) {
-                if (self.sites[i].id === self.id1) {
-                    self.index1 = i
-                }
-                if (self.sites[i].id === self.id2) {
-                   self. index2 = i
-                }
-            }
-
-
-
-
-
-        self.poi1 = self.sites[self.index1]
-        self.poi2 = self.sites[self.index2]
-        self.poiArray.push(self.poi1)
-        self.poiArray.push(self.poi2)
+  
 
         self.selectedSite = function (site) {
             poiService.setPoi(site)

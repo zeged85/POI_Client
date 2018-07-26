@@ -232,7 +232,7 @@ angular.module('citiesApp')
 
 
         let mycats = []
-
+        let mysites = []
         let fresh = false
 
 
@@ -244,6 +244,8 @@ angular.module('citiesApp')
                 fresh = true;
                 $http.get(serverUrl + "users/getCategories")
                     .then(function (res) {
+                        mysites = res.data
+
                         $http.get(serverUrl + "poi/getPOIs")
                             .then(function (response) {
                                 console.log('fgds')
@@ -251,11 +253,10 @@ angular.module('citiesApp')
                                 //console.log(response.data)
                                 //  self.sites=response.data
                                 //for (x in response.data){self.allsites.push(x)}
-                                self.sites = res.data
+                                self.sites = response.data
 
 
 
-                                mysites = res.data
                                 console.log("got pois")
                                 console.log(self.sites)
                                 //$scope.poiCtrl.sites = response.data
@@ -270,8 +271,8 @@ angular.module('citiesApp')
                                 }
 
 
-                                self.cats.push(response.data[random1])
-                                self.cats.push(response.data[random2])
+                                self.cats.push(mysites[random1])
+                                self.cats.push(mysites[random2])
 
                                 mycats = self.cats
 
@@ -311,17 +312,17 @@ angular.module('citiesApp')
 
 
 
-                                self.index1 = -1
-                                self.index2 = -1
-                                i = 0
+                                // self.index1 = -1
+                                // self.index2 = -1
+                                // i = 0
 
 
-                                for (i = 0; i < self.sites.length; i++) {
-                                    if (self.sites[i].category == self.cats[0] && self.index1 == '')
-                                        self.index = i
-                                    if (self.sites[i].category == self.cats[1] && self.index1 == '')
-                                        self.index2 = i
-                                }
+                                // for (i = 0; i < self.sites.length; i++) {
+                                //     if (self.sites[i].category == self.cats[0] && self.index1 == '')
+                                //         self.index = i
+                                //     if (self.sites[i].category == self.cats[1] && self.index1 == '')
+                                //         self.index2 = i
+                              //  }
                                 console.log(self.index1)
 
 

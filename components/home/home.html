@@ -17,36 +17,36 @@
             <img ng-style="{'height': '100px'}" ng-src="{{homCtrl.sites[homCtrl.index2].pic}} ">
 
         </div>
-
+        <!-- <div id="poi">
+            <div class="visited_poi1" ng-repeat="poi in homCtrl.sites">
+                <div ng-repeat="fav in homCtrl.pois" ng-if="poi.id == fav">
+    
+                    <a href="#poiPage" ng-click="homCtrl.selectedSite(poi)">{{poi.name}}</a>
+    
+                    <img ng-style="{'height': '100px'}" ng-src="{{poi.pic}} ">
+    
+                </div>
+    
+            </div>
+        </div> -->
 
     </div>
-    <div id="visited" class="border" ng-if="homCtrl.favExsist">
+    <div id="visited" class="border" ng-if="homCtrl.favExsist" id = "spred">
         <div id="visited_head">
             last saved:
         </div>
         <br>
 
-        <!-- <div ng-repeat="fav in homCtrl.poiArray">
+        <div ng-repeat="fav in homCtrl.poiArray"  class = "spred">
             <a href="#poiPage" ng-click="homCtrl.selectedSite(fav)">{{fav.name}}</a>
             <br>
             <img ng-style="{'height': '100px'}" ng-src="{{fav.pic}}">
-        </div> -->
+        </div>
 
 
     </div>
     <div id="noPoi" ng-if="!homCtrl.favExsist">
         <h3>no POIs to present</h3>
     </div>
-    <div id="poi">
-    <div class="visited_poi1" ng-repeat="poi in homCtrl.sites">
-        <div ng-repeat="fav in homCtrl.pois" ng-if="poi.id == fav">
-           {{homCtrl.counter ++}}
-            <a href="#poiPage" ng-click="homCtrl.selectedSite(poi)">{{poi.name}}</a>
-
-            <img ng-style="{'height': '100px'}" ng-src="{{poi.pic}} ">
-
-        </div>
-
-    </div>
-</div>
+  
 </div>

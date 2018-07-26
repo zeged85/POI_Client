@@ -25,16 +25,5 @@ angular.module('citiesApp')
 
         }
 
-        self.index1 = -1
-        self.index2 = -1
-        i=0
-
-
-        for (i = 0; i < self.sites.length; i++) {
-            if (self.sites[i].category == self.cats[0] && self.index1 == '')
-                self.index = i
-            if (self.sites[i].category == self.cats[1] && self.index1 == '')
-                self.index2 = i
-        }
-        console.log(self.index1)
+    
     }]);

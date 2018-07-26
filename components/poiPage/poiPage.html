@@ -9,16 +9,16 @@
         {{poiPageController.poi.description}}
         <br>
         <label for="adress">Adress:</label>
-        {{poiPageController.poi.adress}}
+        {{poiPageController.poi.address}}
         <br>
         <label for="category">Category:</label>
         {{poiPageController.poi.category}}
         <br>
         <label for="Score">Score:</label>
-        {{poiPageController.poi.score}}
+        {{poiPageController.poi.total_score}}
         <br>
-        <label for="NumOfVotes">Number Of Views</label>
-        {{poiPageController.poi.numOfViews}}
+        <label for="NumOfVotes">Number Of Views:</label>
+        {{poiPageController.poi.num_of_views}}
         <br>
         
         <div ng-show="login">
@@ -31,13 +31,7 @@
                 </div>
         </div>
         <br>
-        <input type="number" ng-model="rank" class="form-control" placeholder="Add Rank">
-        
-        <button ng-click="submitRank()" class="btn btn-sm" >Submit</button>
-        <br><br>
-        <input type="text" ng-model="review" class="form-control" placeholder="Add Review">
-        
-        <button ng-click="submitReview()" class="btn btn-sm" >Submit</button>
+       
     </div>
 </div>
     <img id="image" ng-style="{'height': '400px'}" ng-src="{{poiPageController.poi.pic}} ">

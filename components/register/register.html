@@ -5,18 +5,18 @@
             <h3>Register</h3>
         </div>
         <div class="border border-dark">
-            <form ng-submit="regCtrl.submit()">
-                <input ng-model="regCtrl.username" type="text" placeholder="UserName" class="form-control">
-                <input ng-model="regCtrl.firstName" type="text" placeholder="FirstName" class="form-control">
-                <input ng-model="regCtrl.lastName" type="text" placeholder="LastName" class="form-control">
-                <input ng-model="regCtrl.password" type="text" placeholder="Password" class="form-control">
-                <input ng-model="regCtrl.email" type="text" placeholder="Email" class="form-control">
-                <input ng-model="regCtrl.city" type="text" placeholder="City" class="form-control">
+            <form ng-submit="regCtrl.submit()" name="myForm">
+                <input ng-model="regCtrl.username" type="text" placeholder="UserName" class="form-control" required ng-minlength="2">
+                <input ng-model="regCtrl.firstName" type="text" placeholder="FirstName" class="form-control" required ng-minlength="2">
+                <input ng-model="regCtrl.lastName" type="text" placeholder="LastName" class="form-control" required ng-minlength="2">
+                <input ng-model="regCtrl.password" type="text" placeholder="Password" class="form-control" required ng-minlength="2">
+                <input ng-model="regCtrl.email" type="text" placeholder="Email" class="form-control" required ng-minlength="2">
+                <input ng-model="regCtrl.city" type="text" placeholder="City" class="form-control" required ng-minlength="2">
                 <select name="Country" id="Country" class="form-control" aria-placeholder="Country" ng-model="regCtrl.selectedCountry" ng-options="item for item in regCtrl.countries"></select>
 
                     <label>choose at least two categories:</label>
                     <br>
-                    <input type="checkbox" placeholder="Category" ng-model="regCtrl.category1"> Resturants
+                    <input type="checkbox" placeholder="Category" ng-model="regCtrl.category1" > Resturants
                     <br>
                     <input type="checkbox" placeholder="Category" ng-model="regCtrl.category2"> Parks
                     <br>
@@ -26,15 +26,15 @@
                     <br>
                     <label>choose authentication question:</label>
                     <br>
-                    <form>
-                        <input type="radio" name="q" placeholder="Question" ng-model="regCtrl.selectedQ" ng-value="1"> what is your pet's name?
+                
+                        <input type="radio" name="q" placeholder="Question" ng-model="regCtrl.selectedQ" ng-value="1" ng-required="!reg.selectedCountry"> what is your pet's name?
                         <br>
                         <input type="radio" name="q" placeholder="Question"  ng-model="regCtrl.selectedQ" ng-value="2"> what is your mother's maiden name?
-                    </form>
                     
-                    <input type="text" class="form-control" ng-model="regCtrl.ans" placeholder="Answer" >
+                    
+                    <input type="text" class="form-control" ng-model="regCtrl.ans" placeholder="Answer" required ng-minlength="2">
                     <br>
-                    <button type="submit" class="btn btn-secondary btn-sm" ng-click="regCtrl.submit()">Submit</button>
+                    <button type="submit" class="btn btn-secondary btn-sm" ng-click="regCtrl.submit()" ng-disabled="myForm.$invalid">Submit</button>
             </form>
 
         </div>

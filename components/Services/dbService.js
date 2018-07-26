@@ -5,9 +5,10 @@ angular.module('citiesApp')
 
         console.log("db service init")
         let mysites = [
-            { id: 1, name: "Paris", state: "France", pic: "https://media-cdn.tripadvisor.com/media/photo-s/0d/f5/7c/f2/eiffel-tower-priority.jpg" },
-            { id: 2, name: "Jerusalem", state: "Israel", pic: "https://cdni.rt.com/files/2017.12/article/5a3fe04efc7e93cd698b4567.jpg" },
-            { id: 3, name: "London", state: "England", pic: "http://www.ukguide.co.il/Photos/England/London/British-Royal-Tour.jpg" }
+            { id: 1, name: "austrelian soldier park",  pic: "https://images.haarets.co.il/image/upload/w_2581,h_1499,x_61,y_0,c_crop,g_north_west/w_1105,h_640,q_auto,c_fill,f_auto/fl_any_format.preserve_transparency.progressive:none/v1524983168/1.6034104.1782772843.jpg" },
+            { id: 2, name: "globus max", pic: "http://branza.co.il/assets/uploads/articles/horizontal_big/459f3e31422e2110bf03eddc410c690a.jpg" },
+            { id: 3, name: "ben gurion univresity", pic: "http://www.maariv.co.il/HttpHandlers/ShowImage.ashx?id=390762&w=758&h=530" },
+            { id: 4, name: "shushana", pic: "https://www.rol.co.il/images/sites/shoshana/image-1.jpg" }
         ]
 
         let fresh = false
@@ -29,6 +30,8 @@ angular.module('citiesApp')
                         //  self.sites=response.data
                         //for (x in response.data){self.allsites.push(x)}
                         self.sites = response.data
+
+
 
                         mysites = response.data
                         console.log("got pois")
@@ -55,7 +58,7 @@ angular.module('citiesApp')
             poiInDb = poi
             console.log(poiInDb)
             //   console.log(self.poi.name)
-            self.poi=poiInDb
+            self.poi = poiInDb
 
         }
 
@@ -72,7 +75,45 @@ angular.module('citiesApp')
 
     }])
 
-    .service('favService', ['$http','localStorageModel', function ($http,localStorageModel) {
+    // .service('calcService', ['poiService', 'favService', function (poiService, favService) {
+    //     self = this
+
+    //     self.sites = []
+    //     self.pois = [] //favs
+
+    //     poiService.get()
+    //     favService.get()
+
+    //     length = self.pois.length
+
+    //     self.get = function () {
+    //         if (self.pois.length <= 0)
+    //             self.favExsist = false
+    //         else
+    //             self.favExsist = true
+
+    //         id1 = self.pois[length - 1]
+    //         id2 = self.pois[length - 2]
+            
+    //             for (i = 0; i < self.sites.length; i++) {
+    //                 if (self.sites[i].id === id1) {
+    //                     index1 = i
+    //                 }
+    //                 if (self.sites[i].id === id2) {
+    //                     index2 = i
+    //                 }
+    //             }
+
+
+    //         self.poi1 = self.sites[index1]
+    //         self.poi2 = self.sites[index2]
+    //         self.poiArray.push(self.poi1)
+    //         self.poiArray.push(self.poi2)
+
+    //     }
+    // }])
+
+    .service('favService', ['$http', 'localStorageModel', function ($http, localStorageModel) {
         let serverUrl = 'http://localhost:4000/'
         self = this
 
@@ -81,23 +122,23 @@ angular.module('citiesApp')
 
         let fresh = false
 
-        self.set = function(favlist){
+        self.set = function (favlist) {
             console.log("setting favs")
             myfavs = []
             console.log(favlist)
-            for (var i=0, len = favlist.length;i<len; i+=1){
+            for (var i = 0, len = favlist.length; i < len; i += 1) {
                 console.log(favlist[i])
                 myfavs.push(favlist[i])
             }
             let body = {
-            poi_array : myfavs
+                poi_array: myfavs
             }
 
             $http.post(serverUrl + "poi/saveFavorites", body)
             // .then(function (response) {
-         
+
             //     console.log(response.data)
-          
+
 
             // }, function (response) {
             //     //Second function handles error
@@ -111,16 +152,28 @@ angular.module('citiesApp')
         //     console.log(myfavs)
         //     self.size = myfavs.length
         // }
-        
 
-        self.getCategories = function(){
+
+        self.getCategories = function () {
             console.log('getting cats')
+            let serverUrl = 'http://localhost:4000/'
             $http.get(serverUrl + "users/getCategories")
-            .then(function (response) {
+                .then(function (response) {
                     console.log('gotten cats')
                     console.log(response)
+                    
+                    random1 = Math.floor(Math.random()*3)
+                    random2 = Math.floor(Math.random()*3)
+                    while(random1 == random2){
+                        random1 = Math.floor(Math.random()*3)
+                    }
+
+
+                    self.cats.push(response.data[random1])
+                    self.cats.push(response.data[random2])
+
                 }, function (response) {
-                     
+
                     console.log("didnt get cats")
                     console.log(response)
                     // return cities
@@ -128,10 +181,10 @@ angular.module('citiesApp')
 
 
         }
-        
-        self.reset = function(){
-            fresh=false;
-            myfavs=[]
+
+        self.reset = function () {
+            fresh = false;
+            myfavs = []
             //self.pois = []
             localStorageModel.removeLocalStorage("favs")
         }
@@ -141,49 +194,49 @@ angular.module('citiesApp')
             console.log("before")
             console.log(myfavs)
             var favs = localStorageModel.getLocalStorage("favs")
-            if (favs){
+            if (favs) {
                 myfavs = favs
                 self.pois = myfavs
-               
-            }
-            else{
 
-            if (fresh === false) {
-                fresh = true;
-                $http.get(serverUrl + "poi/getFavorites")
-                .then(function (response) {
-                        console.log('fgds')
-                        console.log(response.data)
-                        var count = 0
-                        myfavs = []
-                        while (count < response.data.length){
-
-                             console.log("adding")
-                             console.log(response.data[count].id)
-         
-                             self.pois.push(response.data[count].id)
-                             myfavs.push(response.data[count].id)
-                             count+=1
-                         }
-                        //myfavs = response.data
-                        localStorageModel.removeLocalStorage("favs")
-                        localStorageModel.addLocalStorage("favs",myfavs)
-                        console.log("got favss")
-                        console.log(myfavs)
-           
-
-                    }, function (response) {
-                     
-                        console.log("didnt get pois")
-                        // return cities
-                    });
             }
             else {
-                self.pois = myfavs
+
+                if (fresh === false) {
+                    fresh = true;
+                    $http.get(serverUrl + "poi/getFavorites")
+                        .then(function (response) {
+                            console.log('fgds')
+                            console.log(response.data)
+                            var count = 0
+                            myfavs = []
+                            while (count < response.data.length) {
+
+                                console.log("adding")
+                                console.log(response.data[count].id)
+
+                                self.pois.push(response.data[count].id)
+                                myfavs.push(response.data[count].id)
+                                count += 1
+                            }
+                            //myfavs = response.data
+                            localStorageModel.removeLocalStorage("favs")
+                            localStorageModel.addLocalStorage("favs", myfavs)
+                            console.log("got favss")
+                            console.log(myfavs)
+
+
+                        }, function (response) {
+
+                            console.log("didnt get pois")
+                            // return cities
+                        });
+                }
+                else {
+                    self.pois = myfavs
+                }
             }
-        }
-        console.log("after")
-        console.log(myfavs)
+            console.log("after")
+            console.log(myfavs)
         }
 
 

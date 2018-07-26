@@ -6,12 +6,12 @@
     </div>
     <div ng-repeat="fav in favCtrl.sites" id="poi" ng-if="favCtrl.pois.indexOf(fav.id) > -1">    
         <div id = "moveButtons">
-            <button class="btn btn-success" ng-click="favCtrl.moveUp(fav)">Up</button>
-            <button class="btn btn-info" ng-click="favCtrl.moveDown(fav)">Down</button>
+            <button class="btn btn-success" ng-click="favCtrl.moveDown(fav)">Up</button>
+            <button class="btn btn-info" ng-click="favCtrl.moveUp(fav)">Down</button>
         </div>
         <a href="#poiPage" ng-click="favCtrl.selectedSite(fav)">{{fav.name}}</a>
         <br>
-        <img class="image" ng-style="{'height': '200px'}" ng-src="{{fav.pic}} ">
+        <img class="image" ng-style="{'width': '200px'}" ng-src="{{fav.pic}} ">
         
         <img class="star" src="https://image.flaticon.com/icons/svg/148/148839.svg" id="removeButton" style="height: 60px; width: 60px;" ng-click="favCtrl.remove(fav)" >
         <br>

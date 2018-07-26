@@ -1,5 +1,5 @@
 angular.module('citiesApp')
-    .controller('registerController', ['$http', function ($http) {
+    .controller('registerController', ['$http','$location', function ($http, $location) {
 
         self = this;
 
@@ -26,7 +26,7 @@ angular.module('citiesApp')
            self.countries =response.data.countries
            
             console.log(response.data)
-
+            $location.path('/about')
         }, function (response) {
             //Second function handles error
            // self.login.content = "Something went wrong";
@@ -70,12 +70,13 @@ angular.module('citiesApp')
                 //self.login.content = response.data.token;
                 //setHeadersToken.set(self.login.content)
                 console.log(response.data)
-
+                $location.path('/about')
             }, function (response) {
                 //Second function handles error
                // self.login.content = "Something went wrong";
                console.log(response)
             });
         };
+        
 
     }]);

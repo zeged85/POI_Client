@@ -3,15 +3,21 @@
 <div id="content" ng-controller="homeController as homCtrl">
     <div id="recomended" class="border">
         <div id="category1">
-            category1:
-            <br> poi1
-            <br> poi2
+            {{homCtrl.cats[0]}}
+            <br> {{homCtrl.sites[homCtrl.index1].name}} <br>
+            <img ng-style="{'height': '100px'}" ng-src="{{homCtrl.sites[homCtrl.index1].pic}} ">
+
+            <br> 
         </div>
         <div id="category2">
-            category2:
-            <br> poi1
-            <br> poi2
+            {{homCtrl.cats[1]}}
+            <br> {{homCtrl.sites[homCtrl.index2].name}}
+            <br> 
+            <img ng-style="{'height': '100px'}" ng-src="{{homCtrl.sites[homCtrl.index2].pic}} ">
+
         </div>
+
+
     </div>
     <div id="visited" class="border" ng-if="homCtrl.favExsist">
         <div id="visited_head">

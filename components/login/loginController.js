@@ -8,7 +8,7 @@ angular.module('citiesApp')
         self.username = "username";
         self.password = "password";
 
-        self.question = "question"
+        self.question = ""
 
         self.selectedSite = function (site) {
             poiService.setPoi(site)
@@ -42,11 +42,12 @@ angular.module('citiesApp')
                     localStorageModel.addLocalStorage("token", response.data)
 
                     console.log(response.data)
-                    $location.path('/home')
+                    $location.path('/about')
 
                 }, function (response) {
                     //Second function handles error
                     // self.login.content = "Something went wrong";
+                    alert('username or password wrong')
                     console.log(response)
                 });
         };
@@ -73,33 +74,34 @@ angular.module('citiesApp')
         }
 
         self.recover = false
-        self.forgot = function (t) {
+        self.forgot = function () {
             if (self.recover === true)
                 self.recover = false
             else if (self.recover === false) {
                 self.recover = true
                 // self.question = "quest"
 
-                console.log(t)
-                let query = "?username=" + t;
-
-                $http.get(serverUrl + "Users/retrievePassword" + query)
-                    .then(function (response) {
-                        self.question = response.data
-
-                    }, function (response) {
-                        self.question = response.data
-
-                        console.log("user not found")
-                        // return cities
-                    });
-
-
-
+                //console.log(t)
 
             }
 
 
+        }
+        self.getQ = function(t){
+            let query = "?username=" + t;
+
+            $http.get(serverUrl + "Users/retrievePassword" + query)
+                .then(function (response) {
+                    if(response.data.answer1 === true)
+                    self.question = "what is your pet's name?"
+                    else if(response.data.answer2 === true)
+                    self.question ="what is your mother's maiden name?"
+                }, function (response) {
+                    self.question = response.data
+
+                    console.log("user not found")
+                    // return cities
+                });
         }
         self.randomArray = []
         random1 = Math.floor(Math.random()*self.sites.length - 1)

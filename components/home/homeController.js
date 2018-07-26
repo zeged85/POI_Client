@@ -1,5 +1,5 @@
 angular.module('citiesApp')
-    .controller('homeController', ['poiService', 'favService', function (poiService, favService) {
+    .controller('homeController', ['poiService', 'favService','catService', function (poiService, favService,catService) {
         self = this;
 
         self.sites = []
@@ -8,7 +8,7 @@ angular.module('citiesApp')
         poiService.get()
         favService.get()
         self.cats = []
-        favService.getCategories()
+        catService.getCategories()
 
         self.poiArray = []
 
@@ -23,15 +23,15 @@ angular.module('citiesApp')
             else
             self.favExsist = true
 
-        id1 = self.pois[length-1]
-        id2 = self.pois[length-2]
+       self. id1 = self.pois[length-1]
+      self.  id2 = self.pois[length-2]
         
             for (i = 0; i < self.sites.length; i++) {
-                if (self.sites[i].id === id1) {
-                    index1 = i
+                if (self.sites[i].id === self.id1) {
+                    self.index1 = i
                 }
-                if (self.sites[i].id === id2) {
-                    index2 = i
+                if (self.sites[i].id === self.id2) {
+                   self. index2 = i
                 }
             }
 

@@ -154,34 +154,7 @@ angular.module('citiesApp')
         // }
 
 
-        self.getCategories = function () {
-            console.log('getting cats')
-            let serverUrl = 'http://localhost:4000/'
-            $http.get(serverUrl + "users/getCategories")
-                .then(function (response) {
-                    console.log('gotten cats')
-                    console.log(response)
-                    
-                    random1 = Math.floor(Math.random()*3)
-                    random2 = Math.floor(Math.random()*3)
-                    while(random1 == random2){
-                        random1 = Math.floor(Math.random()*3)
-                    }
-
-
-                    self.cats.push(response.data[random1])
-                    self.cats.push(response.data[random2])
-
-                }, function (response) {
-
-                    console.log("didnt get cats")
-                    console.log(response)
-                    // return cities
-                });
-
-
-        }
-
+      
         self.reset = function () {
             fresh = false;
             myfavs = []
@@ -241,4 +214,67 @@ angular.module('citiesApp')
 
 
 
-    }]);
+
+
+
+
+
+
+
+    }])
+    
+    
+    .service('catService', ['$http', 'localStorageModel', function ($http, localStorageModel) {
+       
+       
+        let serverUrl = 'http://localhost:4000/'
+        self = this
+
+
+        let mycats = []
+
+        let fresh = false
+
+
+        self.getCategories = function () {
+            console.log('getting cats')
+            let serverUrl = 'http://localhost:4000/'
+
+            if (fresh === false) {
+                fresh = true;
+            $http.get(serverUrl + "users/getCategories")
+                .then(function (response) {
+                    console.log('gotten cats')
+                    console.log(response)
+                    
+                    random1 = Math.floor(Math.random()*3)
+                    random2 = Math.floor(Math.random()*3)
+                    while(random1 == random2){
+                        random1 = Math.floor(Math.random()*3)
+                    }
+
+
+                    self.cats.push(response.data[random1])
+                    self.cats.push(response.data[random2])
+
+                    mycats = self.cats
+
+                }, function (response) {
+
+                    console.log("didnt get cats")
+                    console.log(response)
+                    // return cities
+                });
+
+
+            }
+            else{
+return mycats
+            }
+
+        }
+
+    
+    }])
+    
+    ;
